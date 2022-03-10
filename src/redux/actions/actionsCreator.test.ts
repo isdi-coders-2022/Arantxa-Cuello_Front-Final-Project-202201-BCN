@@ -1,4 +1,4 @@
-import Session from "../../types/Session";
+import { Session } from "../../types/Session";
 import { loadSessionsAction } from "./actionsCreators";
 
 describe("Given a load sessions action", () => {
