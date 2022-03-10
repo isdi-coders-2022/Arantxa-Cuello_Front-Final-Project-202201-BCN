@@ -1,9 +1,9 @@
-import Session from "./Session";
+import { Session } from "./Session";
 
 export interface AnyActionInterface {
-  type?: string;
+  type: string;
 }
 
 export interface loadSessionsInterface extends AnyActionInterface {
-  session: Session[];
+  sessions: Session[];
 }

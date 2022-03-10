@@ -1,5 +1,4 @@
-import Session from "../../types/Session";
-import { AnyAction } from "redux";
+import { Session } from "../../types/Session";
 import {
   AnyActionInterface,
   loadSessionsInterface,
@@ -8,13 +7,15 @@ import actionsTypes from "../actions/actionsTypes";
 
 const sessionReducer = (
   state: Session[] = [],
-  action: AnyActionInterface | AnyAction = {}
+  action: AnyActionInterface | loadSessionsInterface = {
+    type: "",
+  }
 ) => {
   let newSession: Session[];
 
   switch (action.type) {
     case actionsTypes.loadSessions:
-      newSession = [...(action as loadSessionsInterface).session];
+      newSession = [...(action as loadSessionsInterface).sessions];
       break;
 
     default:
