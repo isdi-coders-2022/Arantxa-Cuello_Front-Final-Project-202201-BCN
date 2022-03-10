@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primary, secondary } from "../../styles/globalStyles";
+import { primary } from "../../styles/globalStyles";
 
 const Banner = styled.footer`
   background-color: ${primary};
