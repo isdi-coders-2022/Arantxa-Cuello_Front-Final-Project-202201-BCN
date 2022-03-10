@@ -1,4 +1,4 @@
-import actionsTypes from "../actionsTypes";
+import actionsTypes from "../actions/actionsTypes";
 import Session from "../../types/Session";
 
 export const loadSessionsAction = (session: Session) => ({
