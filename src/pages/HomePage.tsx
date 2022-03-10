@@ -1,13 +1,9 @@
 import Navigation from "../components/NavigationComponent/Navigation";
 import meditation from "../images/meditation.png";
 import styled from "styled-components";
+import Footer from "../components/FooterComponent/Footer";
 
-const Body = styled.body`
-  img {
-    width: 574 px;
-    height: 459 px;
-  }
-`;
+const Body = styled.body``;
 const HomePage = () => {
   return (
     <>
@@ -17,8 +13,11 @@ const HomePage = () => {
           src={meditation}
           alt="meditation woman"
           className="body_container_image"
+          height={459}
+          width={574}
         />
       </Body>
+      <Footer />
     </>
   );
 };
