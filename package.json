@@ -52,7 +52,9 @@
     "collectCoverageFrom": [
       "!src/**/*.test.js",
       "!src/index.js",
+      "!src/index.tsx",
       "!src/reportWebVitals.js",
+      "!src/reportWebVitals.ts",
       "!src/setupTests.js",
       "!src/mocks/server.js",
       "!src/mocks/handlers.js"
