@@ -7,7 +7,7 @@ export const handlers = [
       res(
         ctx.status(200),
         ctx.json({
-          messages: [
+          sessions: [
             {
               title: "hello",
               comment: "hola",
