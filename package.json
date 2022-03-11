@@ -62,7 +62,8 @@
       "!src/setupTests.js",
       "!src/mocks/server.js",
       "!src/mocks/handlers.js"
-    ]
+    ],
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.24"
