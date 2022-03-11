@@ -1,6 +1,6 @@
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Session from "../../types/Session";
+import { Session } from "../../types/Session";
 
 interface SessionCardProps {
   session: Session;
