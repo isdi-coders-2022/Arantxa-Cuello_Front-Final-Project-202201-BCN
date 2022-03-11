@@ -2,5 +2,5 @@ projectKey=Mindfulness-front
 serverUrl=http://localhost:9000
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:9000/dashboard?id=Mindfulness-front
-ceTaskId=AX94rTcykiikvlmv1fWs
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX94rTcykiikvlmv1fWs
+ceTaskId=AX95AZpskiikvlmv1fWt
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX95AZpskiikvlmv1fWt
