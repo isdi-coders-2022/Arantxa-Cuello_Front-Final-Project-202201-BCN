@@ -3,7 +3,7 @@ import meditation from "../images/meditation.png";
 import styled from "styled-components";
 import Footer from "../components/FooterComponent/Footer";
 
-const Body = styled.body``;
+const Body = styled.section``;
 const HomePage = () => {
   return (
     <>
