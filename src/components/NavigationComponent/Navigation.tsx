@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import lotus from "../../images/lotus.png";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
@@ -28,7 +28,7 @@ const Nav = styled.header`
     }
   }
 
-  .navigation_icon {
+  .navigation_icon, input[type="checkbox"], .nav_menu {
     color: ${secondary};
     width: 25px;
     height: 20px;
@@ -77,13 +77,29 @@ const Nav = styled.header`
       display: none;
     }
   }
+  .nav_menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  max-width: 200px;
+  }
 `;
 
 const Navigation = (): JSX.Element => {
   return (
     <Nav className="nav_bar">
-      <div>
+      <div className="nav_menu">
+        <input type="checkbox" />
         <FontAwesomeIcon className="navigation_icon" icon={faBars} />
+        <FontAwesomeIcon className="navigation_icon" icon={faTimes} />
+        <nav>
+          <ul>
+            <li>
+              <a href="/allsessions">The Programs</a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className="nav_header">
         <img src={lotus} alt="logo" />
