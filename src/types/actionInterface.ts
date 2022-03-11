@@ -4,7 +4,7 @@ export interface SomeActionInterface {
   type: string;
 }
 export interface ActionInterface {
-  type?: string;
-  sessions?: Session[];
-  session?: Session;
+  type: string;
+  sessions: Session[];
+  session: Session;
 }

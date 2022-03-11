@@ -5,5 +5,5 @@ export interface AnyActionInterface {
 }
 
 export interface loadSessionsInterface extends AnyActionInterface {
-  sessions: Session[];
+  session: Session[];
 }

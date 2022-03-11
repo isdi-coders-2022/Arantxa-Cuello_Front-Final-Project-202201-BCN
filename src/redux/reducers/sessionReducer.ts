@@ -15,7 +15,7 @@ const sessionReducer = (
 
   switch (action.type) {
     case actionsTypes.loadSessions:
-      newSession = [...(action as loadSessionsInterface).sessions];
+      newSession = [...(action as loadSessionsInterface).session];
       break;
 
     default:
