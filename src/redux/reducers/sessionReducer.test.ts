@@ -22,7 +22,7 @@ describe("Given a sessionReducer function", () => {
 
       const action = {
         type: actionsTypes.loadSessions,
-        session: sessionsArray,
+        sessions: sessionsArray,
       };
 
       const newState = sessionReducer(state, action);
