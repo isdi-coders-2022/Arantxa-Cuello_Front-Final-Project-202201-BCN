@@ -4,18 +4,25 @@ import { loadSessionsAction } from "./actionsCreators";
 describe("Given a load sessions action", () => {
   describe("When it receives a session", () => {
     test("Then it should return an action type loadsessions", () => {
-      const session: Session = {
-        title: "saturday",
-        comment: "lalal",
-        date: "today",
-      };
+      const sessions: Session[] = [
+        {
+          title: "saturday",
+          comment: "lalal",
+          date: "today",
+        },
+        {
+          title: "saturday",
+          comment: "lalal",
+          date: "today",
+        },
+      ];
 
       const expectedAction = {
         type: "load-sessions",
-        session,
+        sessions,
       };
 
-      const action = loadSessionsAction(session);
+      const action = loadSessionsAction(sessions);
 
       expect(action).toEqual(expectedAction);
     });
