@@ -15,7 +15,7 @@ describe("Given an App component", () => {
         </BrowserRouter>
       );
 
-      const nav = screen.getByRole("banner");
+      const nav = screen.getByRole("navigation");
 
       expect(nav).toBeInTheDocument();
     });

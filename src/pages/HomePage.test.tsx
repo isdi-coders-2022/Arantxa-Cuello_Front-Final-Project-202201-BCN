@@ -12,8 +12,8 @@ describe("Given a Footer Component", () => {
       );
 
       const text = screen.getByRole("heading", { name: /text here/i });
-      const heading = screen.getByRole("heading", {
-        name: /Your meditation space/i,
+      const heading = screen.getByRole("navigation", {
+        name: "",
       });
       const body = screen.getByRole("img", { name: /meditation woman/i });
 

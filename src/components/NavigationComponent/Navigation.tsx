@@ -1,183 +1,222 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import lotus from "../../images/lotus.png";
+import buda from "../../images/buda-logo.jpg";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
 
-const Nav = styled.header`
-  padding-top: 5px;
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 25px;
-  margin-left: 25px;
-  .nav_bar {
-    text-align: center;
-    padding: 5px 5px 2px 5px;
-    position: fixed;
-  }
-  .fa-bars {
-    color: ${secondary};
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  input[type="checkbox"]{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  .nav_menu a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 10px 20px;
-  max-width: 200px;
-  }
-  .nav_header {
-    margin-left: 45px;
-    display: flex;
-    align-items:center;
-  }
-    @media (max-width: 600px) {
-      text-align: center;
-    }
-  }
-  .nav_menu input[type="checkbox"], .nav_menu .fa-times {
-    position:absolute;
+const Nav = styled.nav`
+  *,
+  *::after,
+  *::before {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
-    right: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    cursor: pointer
+    margin: 0;
   }
-  .nav_menu .fa-bars, .nav_menu .fa-times {
-    font-size: 48px;
-    pointer-events: none;
+  box-shadow: 0px 5px 10px 0px #aaa;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  opacity: 0.85;
+  align-items: center;
+  z-index: 100;
+  input[type="checkbox"]{
+    appearance: none;
   }
-  .nav_menu {
-    color: white;
-  position: relative;
-  background: ${secondary};
-  min-height: 48px;
+  @media (max-width: 600px) {
+    opacity: 0.95;
   }
-  .nav_menu input[type="checkbox"]{
-    opacity: 0;
-  }
-  .nav_menu nav {
+  .hamburger-lines {
     display: none;
   }
-  .nav_menu input:checked ~ nav {
-  display: block;
+  .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
   }
-  .nav_menu input:checked ~ .fa-bars {
-  display: none;
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
   }
-  .nav_menu input:not(:checked) ~ .fa-times {
-  display: none;
+  .nav-links {
+    order: 2;
+    display: flex;
+  }
+  .logo {
+    order: 1;
+    font-size: 2.3rem;
   }
   img {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    margin-right: 20px;
+    height: 70px;
   }
-
-  .nav_header h1 {
-    font-size: 18px;
-    color: #666;
-    font-weight: 300;
-    @media (max-width: 600px) {
-      display: none;
-      text-align: center;
-    }
-  }
-
-  button {
-    @media (max-width: 600px) {
-      display: none;
-    }
-    background-color: ${primary};
-    border-radius: 6px;
-    padding: 8px 24px;
-    border: none;
-    padding: 10px 30px;
-    width: 100%;
-    color: white;
-    transition: 0.15s;
-    cursor: pointer;
-    
+  .nav-links li {
+    list-style: none;
+    margin-left: 50px;
+    font-size: 1.3rem;
   }
   a {
-    
-    text-decoration: none;
     color: ${primary};
-    margin-left: 500px;
-    @media (max-width: 600px) {
-      display: none;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  a:hover {
+    color: ${secondary};
+  }
+  button {
+    color: white;
+    border: none;
+    background-color: ${primary};
+    padding: 10px 30px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    font-size: inherit;
+    width: 100%;
+    transition: 0.15s;
+  }
+
+  @media (max-width: 600px) {
+  .navbar-container input[type="checkbox"],
+  .navbar-container .hamburger-lines {
+    display: block;
+  }
+  .navbar-container {
+    display: block;
+    position: relative;
+    height: 64px;
+  }
+  .navbar-container input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .navbar-container .hamburger-lines {
+      display: block;
+      height: 28px;
+      width: 35px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .navbar-container .hamburger-lines .line {
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 10px;
+      background: #333;
+    }
+
+    .navbar-container .hamburger-lines .line1 {
+      transform-origin: 0% 0%;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line2 {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line3 {
+      transform-origin: 0% 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+    .nav-links{
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        padding-left: 40px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow:  5px 0px 10px 0px #aaa;
+        
+    }
+    .nav-links li{
+      margin-bottom: 1.8rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    img{
+      position: absolute;
+      top: 7px;
+      right: 0px;
+      height: 50px;
+      width: 50px
+        
+    }
+    .navbar-container input[type="checkbox"]:checked ~ .nav-links{
+        transform: translateX(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
+        transform: rotate(45deg);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
+        transform: scaleY(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
+        transform: rotate(-45deg);
+    }
+
+}
+
+  }
+  @media (max-width: 500px){
+    .navbar-container input[type="checkbox"]:checked ~ .logo{
+        display: none;
     }
   }
-  
-  li{
-    list-style: none;
-    padding: 40px;
-  }
-  
 `;
 
 const Navigation = (): JSX.Element => {
   return (
-    <Nav className="nav_bar">
-      <div className="nav_menu">
-        <input type="checkbox" />
-        <FontAwesomeIcon className="fa-bars" icon={faBars} />
-        <FontAwesomeIcon className="fa-times" icon={faTimes} />
-        <nav>
-          <ul>
-            <li>
-              <a href="/allsessions">The Sessions</a>
-            </li>
-            <li>
-              <a href="/allsessions">Create your own session</a>
-            </li>
-            <li>
-              <a href="/allsessions">My Sessions</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div className="nav_header">
-        <img src={lotus} alt="logo" />
-        <h1>
-          <Link to="/">Your meditation space</Link>
-        </h1>
-      </div>
-      <div>
-        <Link to="/login">Login</Link>
-      </div>
-      <div>
-        <button>Create an account</button>
+    <Nav className="navbar">
+      <div className="navbar-container container">
+        <input type="checkbox" name="" id="" />
+        <div className="hamburger-lines">
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
+        </div>
+        <ul className="nav-links">
+          <li>
+            <a href="/allsessions">The Sessions</a>
+          </li>
+          <li>
+            <a href="/allsessions">Create your own session</a>
+          </li>
+          <li>
+            <a href="/allsessions">My Sessions</a>
+          </li>
+          <li>
+            <Link className="login" to="/login">
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link className="login" to="/login">
+              Create an account
+            </Link>
+          </li>
+        </ul>
+        <a href="/">
+          <img src={buda} alt="logo" />
+        </a>
       </div>
     </Nav>
   );
