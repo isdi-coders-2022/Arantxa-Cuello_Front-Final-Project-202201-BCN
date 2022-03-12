@@ -15,7 +15,7 @@ describe("Given a My profile page component", () => {
         </BrowserRouter>
       );
 
-      const TextHeading = screen.getByRole("banner", {
+      const TextHeading = screen.getByRole("navigation", {
         name: "",
       });
 
