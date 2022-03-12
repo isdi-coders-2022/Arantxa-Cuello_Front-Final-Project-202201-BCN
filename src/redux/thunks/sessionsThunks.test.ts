@@ -1,4 +1,3 @@
-import actionsTypes from "../actions/actionsTypes";
 import { loadSessionsThunk } from "./sessionsThunks";
 
 describe("Given a loadSessionsThunk function", () => {
