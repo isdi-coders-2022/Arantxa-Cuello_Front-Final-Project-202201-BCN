@@ -83,9 +83,9 @@ const Nav = styled.header`
   min-height: 48px;
   }
   .nav_menu input[type="checkbox"]{
-     opacity: 0;
+    opacity: 0;
   }
-   .nav_menu nav {
+  .nav_menu nav {
     display: none;
   }
   .nav_menu input:checked ~ nav {
