@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import buda from "../../images/buda-logo.jpg";
+import buda from "../../images/buda-logo.png";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
 
