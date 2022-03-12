@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import buda from "../../images/buda-logo.jpg";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
@@ -49,7 +47,7 @@ const Nav = styled.nav`
   }
   .nav-links li {
     list-style: none;
-    margin-left: 1.5rem;
+    margin-left: 50px;
     font-size: 1.3rem;
   }
   a {
@@ -105,9 +103,9 @@ const Navigation = (): JSX.Element => {
             </Link>
           </li>
         </ul>
-        <div className="logo">
+        <a href="/">
           <img src={buda} alt="logo" />
-        </div>
+        </a>
       </div>
     </Nav>
   );
