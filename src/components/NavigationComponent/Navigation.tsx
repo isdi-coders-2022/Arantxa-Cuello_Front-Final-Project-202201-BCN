@@ -5,7 +5,7 @@ import lotus from "../../images/lotus.png";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
 
-const Nav = styled.header`
+const Nav = styled.nav`
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
@@ -149,36 +149,30 @@ const Nav = styled.header`
 const Navigation = (): JSX.Element => {
   return (
     <Nav className="nav_bar">
-      <div className="nav_menu">
-        <input type="checkbox" />
-        <FontAwesomeIcon className="fa-bars" icon={faBars} />
-        <FontAwesomeIcon className="fa-times" icon={faTimes} />
-        <nav>
-          <ul>
-            <li>
-              <a href="/allsessions">The Sessions</a>
-            </li>
-            <li>
-              <a href="/allsessions">Create your own session</a>
-            </li>
-            <li>
-              <a href="/allsessions">My Sessions</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div className="nav_header">
+      <div className="logo">
         <img src={lotus} alt="logo" />
-        <h1>
-          <Link to="/">Your meditation space</Link>
-        </h1>
+        <Link to="/">Your meditation space</Link>
       </div>
-      <div>
-        <Link to="/login">Login</Link>
+      <div className="hamburguer">
+        <FontAwesomeIcon className="fa-bars" icon={faBars} />
       </div>
-      <div>
-        <button>Create an account</button>
-      </div>
+      <ul className="nav-links">
+        <li>
+          <a href="/allsessions">The Sessions</a>
+        </li>
+        <li>
+          <a href="/allsessions">Create your own session</a>
+        </li>
+        <li>
+          <a href="/allsessions">My Sessions</a>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <button>Create an account</button>
+        </li>
+      </ul>
     </Nav>
   );
 };
