@@ -12,16 +12,12 @@ describe("Given a Navigation Component", () => {
       );
 
       const logo = screen.getByRole("img", { name: /logo/i });
-      const button = screen.getByRole("button", { name: /create an account/i });
+      const button = screen.getByRole("link", { name: /create an account/i });
       const link = screen.getByRole("link", { name: /login/i });
-      const heading = screen.getByRole("heading", {
-        name: /Your meditation space/i,
-      });
 
       expect(logo).toBeInTheDocument();
       expect(button).toBeInTheDocument();
       expect(link).toBeInTheDocument();
-      expect(heading).toBeInTheDocument();
     });
   });
 });
