@@ -1,178 +1,114 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import lotus from "../../images/lotus.png";
+import buda from "../../images/buda-logo.jpg";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
 
 const Nav = styled.nav`
-  padding-top: 5px;
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 25px;
-  margin-left: 25px;
-  .nav_bar {
-    text-align: center;
-    padding: 5px 5px 2px 5px;
-    position: fixed;
-  }
-  .fa-bars {
-    color: ${secondary};
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  input[type="checkbox"]{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  .nav_menu a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 10px 20px;
-  max-width: 200px;
-  }
-  .nav_header {
-    margin-left: 45px;
-    display: flex;
-    align-items:center;
-  }
-    @media (max-width: 600px) {
-      text-align: center;
-    }
-  }
-  .nav_menu input[type="checkbox"], .nav_menu .fa-times {
-    position:absolute;
+  *,
+  *::after,
+  *::before {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
-    right: 0;
-    top: 0;
-    width: 48px;
-    height: 48px;
-    cursor: pointer
+    margin: 0;
   }
-  .nav_menu .fa-bars, .nav_menu .fa-times {
-    font-size: 48px;
-    pointer-events: none;
-  }
-  .nav_menu {
-    color: white;
-  position: relative;
-  background: ${secondary};
-  min-height: 48px;
-  }
-  .nav_menu input[type="checkbox"]{
-    opacity: 0;
-  }
-  .nav_menu nav {
+  box-shadow: 0px 5px 10px 0px #aaa;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  opacity: 0.85;
+  align-items: center;
+  z-index: 100;
+  input[type="checkbox"],
+  .hamburger-lines {
     display: none;
   }
-  .nav_menu input:checked ~ nav {
-  display: block;
+  .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
   }
-  .nav_menu input:checked ~ .fa-bars {
-  display: none;
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
   }
-  .nav_menu input:not(:checked) ~ .fa-times {
-  display: none;
+  .nav-links {
+    order: 2;
+    display: flex;
+  }
+  .logo {
+    order: 1;
+    font-size: 2.3rem;
   }
   img {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    margin-right: 20px;
+    height: 70px;
   }
-
-  .nav_header h1 {
-    font-size: 18px;
-    color: #666;
-    font-weight: 300;
-    @media (max-width: 600px) {
-      display: none;
-      text-align: center;
-    }
-  }
-
-  button {
-    @media (max-width: 600px) {
-      display: none;
-    }
-    background-color: ${primary};
-    border-radius: 6px;
-    padding: 8px 24px;
-    border: none;
-    padding: 10px 30px;
-    width: 100%;
-    color: white;
-    transition: 0.15s;
-    cursor: pointer;
-    
+  .nav-links li {
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
   }
   a {
-    
-    text-decoration: none;
     color: ${primary};
-    margin-left: 500px;
-    @media (max-width: 600px) {
-      display: none;
-    }
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
   }
-  
-  li{
-    list-style: none;
-    padding: 40px;
+  a:hover {
+    color: ${secondary};
   }
-  
+  button {
+    color: white;
+    border: none;
+    background-color: ${primary};
+    padding: 10px 30px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    font-size: inherit;
+    width: 100%;
+    transition: 0.15s;
+  }
 `;
 
 const Navigation = (): JSX.Element => {
   return (
-    <Nav className="nav_bar">
-      <div className="logo">
-        <img src={lotus} alt="logo" />
-        <Link to="/">Your meditation space</Link>
+    <Nav className="navbar">
+      <div className="navbar-container container">
+        <input type="checkbox" name="" id="" />
+        <div className="hamburger-lines">
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
+        </div>
+        <ul className="nav-links">
+          <li>
+            <a href="/allsessions">The Sessions</a>
+          </li>
+          <li>
+            <a href="/allsessions">Create your own session</a>
+          </li>
+          <li>
+            <a href="/allsessions">My Sessions</a>
+          </li>
+          <li>
+            <Link className="login" to="/login">
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link className="login" to="/login">
+              Create an account
+            </Link>
+          </li>
+        </ul>
+        <div className="logo">
+          <img src={buda} alt="logo" />
+        </div>
       </div>
-      <div className="hamburguer">
-        <FontAwesomeIcon className="fa-bars" icon={faBars} />
-      </div>
-      <ul className="nav-links">
-        <li>
-          <a href="/allsessions">The Sessions</a>
-        </li>
-        <li>
-          <a href="/allsessions">Create your own session</a>
-        </li>
-        <li>
-          <a href="/allsessions">My Sessions</a>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <button>Create an account</button>
-        </li>
-      </ul>
     </Nav>
   );
 };
