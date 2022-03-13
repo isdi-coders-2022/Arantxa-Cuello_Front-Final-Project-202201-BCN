@@ -1,7 +1,6 @@
 import Navigation from "../components/NavigationComponent/Navigation";
 import meditation from "../images/meditation.png";
 import styled from "styled-components";
-import Footer from "../components/FooterComponent/Footer";
 import { primary } from "../styles/globalStyles";
 
 const Body = styled.article`
