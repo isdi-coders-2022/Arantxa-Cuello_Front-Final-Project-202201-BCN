@@ -10,8 +10,7 @@ const Banner = styled.footer`
   border: none;
   bottom: 0;
   width: 100vw;
-  position: absolute;
-  bottom: 0;
+
   left: 0;
   right: 0;
   padding-top: 40px;
@@ -21,6 +20,7 @@ const Banner = styled.footer`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    bottom: 0;
   }
 
   ul {
