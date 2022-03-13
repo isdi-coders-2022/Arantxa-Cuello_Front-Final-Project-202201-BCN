@@ -55,10 +55,10 @@ const Footer = (): JSX.Element => {
             <img src={facebook} alt="facebook-logo" />
           </li>
           <li>
-            <img src={instagram} alt="facebook-logo" />
+            <img src={instagram} alt="instagram-logo" />
           </li>
           <li>
-            <img src={twitter} alt="facebook-logo" />
+            <img src={twitter} alt="twitter-logo" />
           </li>
         </ul>
         <h1>Mindfulness©</h1>

@@ -11,7 +11,7 @@ describe("Given a Footer Component", () => {
         </BrowserRouter>
       );
 
-      const text = screen.getByRole("heading", { name: /text here/i });
+      const text = screen.getByRole("checkbox", { name: "" });
       const heading = screen.getByRole("navigation", {
         name: "",
       });
