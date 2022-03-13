@@ -1,24 +1,30 @@
 import styled from "styled-components";
 import { primary } from "../../styles/globalStyles";
+import facebook from "../../images/facebook.png";
 
 const Banner = styled.footer`
   background-color: ${primary};
-  height: 100px;
-  bottom: 0;
   position: absolute;
-  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
 
-  h1 {
-    font-size: 14px;
-    text-align: center;
-    align-item: center;
-    color: white;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 `;
 
 const Footer = (): JSX.Element => {
   return (
     <Banner>
+      <div className="footer-content">
+        <img src={facebook} alt="" />
+      </div>
       <h1>text here</h1>
     </Banner>
   );
