@@ -8,6 +8,7 @@ describe("Given a SessionCard Component", () => {
         title: "saturday",
         comment: "blabla",
         date: "monday",
+        iFrame: "example",
       };
       render(<SessionCard session={session} />);
 
