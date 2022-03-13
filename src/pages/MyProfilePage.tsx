@@ -17,7 +17,6 @@ const MyProfilePage = (): JSX.Element => {
 
   return (
     <>
-      <Navigation />
       <MainSection>
         <ul>
           {sessions.map((session) => (
@@ -25,7 +24,6 @@ const MyProfilePage = (): JSX.Element => {
           ))}
         </ul>
       </MainSection>
-      <Footer />
     </>
   );
 };
@@ -33,5 +31,6 @@ const MainSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 100px;
 `;
 export default MyProfilePage;
