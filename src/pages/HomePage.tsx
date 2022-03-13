@@ -55,7 +55,6 @@ const HomePage = () => {
           <h1>Welcome to Mindfulness, your meditation space.</h1>
         </div>
       </Body>
-      <Footer />
     </>
   );
 };
