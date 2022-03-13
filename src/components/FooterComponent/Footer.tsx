@@ -6,18 +6,22 @@ import twitter from "../../images/twitter.png";
 
 const Banner = styled.footer`
   background-color: ${primary};
-  position: absolute;
+  box-sizing: border-box;
+  border: none;
   bottom: 0;
+  width: 100vw;
+
   left: 0;
   right: 0;
-  height: auto;
-  width: 100vw;
   padding-top: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    bottom: 0;
+  }
 
   ul {
     list-style: none;

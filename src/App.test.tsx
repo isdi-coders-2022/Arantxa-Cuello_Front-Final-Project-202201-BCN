@@ -15,7 +15,9 @@ describe("Given an App component", () => {
         </BrowserRouter>
       );
 
-      const nav = screen.getByRole("navigation");
+      const nav = screen.getByRole("heading", {
+        name: "Welcome to Mindfulness, your meditation space.",
+      });
 
       expect(nav).toBeInTheDocument();
     });
