@@ -9,11 +9,13 @@ describe("Given a load sessions action", () => {
           title: "saturday",
           comment: "lalal",
           date: "today",
+          iFrame: "example",
         },
         {
           title: "saturday",
           comment: "lalal",
           date: "today",
+          iFrame: "example",
         },
       ];
 

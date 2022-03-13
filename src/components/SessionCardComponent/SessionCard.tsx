@@ -7,7 +7,7 @@ interface SessionCardProps {
 }
 //faltan las acciones de modificar y borrar la session
 const SessionCard = ({
-  session: { title, date, comment },
+  session: { title, date, comment, iFrame },
 }: SessionCardProps): JSX.Element => {
   return (
     <li>
@@ -16,6 +16,15 @@ const SessionCard = ({
       <div>
         <p>{comment}</p>
       </div>
+      <iframe
+        width="560"
+        height="315"
+        src={iFrame}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
       <div>
         <FontAwesomeIcon icon={faPen} className="modify_card" />
         <FontAwesomeIcon icon={faTrashCan} className="delete_card" />

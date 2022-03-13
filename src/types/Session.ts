@@ -2,6 +2,7 @@ export interface Session {
   title: string;
   date: string;
   comment: string;
+  iFrame: string;
 }
 
 export interface SessionProps {
