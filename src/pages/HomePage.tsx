@@ -4,6 +4,7 @@ import { primary } from "../styles/globalStyles";
 
 const Body = styled.body`
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding-top: 120px;
@@ -31,6 +32,11 @@ const Body = styled.body`
     h1 {
       display: inline-block;
       text-align: center;
+    }
+    .body-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 `;
