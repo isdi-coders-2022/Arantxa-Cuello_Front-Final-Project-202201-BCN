@@ -27,10 +27,11 @@ const Card = styled.li`
 
 interface SessionCardProps {
   session: Session;
+  onDelete: () => void;
 }
 //faltan las acciones de modificar y borrar la session
 const SessionCard = ({
-  session: { title, date, comment, iFrame },
+  session: { title, date, comment, iFrame, onDelete },
 }: SessionCardProps): JSX.Element => {
   return (
     <Card>
@@ -50,7 +51,11 @@ const SessionCard = ({
           allowFullScreen
         ></iframe>
         <div>
-          <FontAwesomeIcon icon={faTrashCan} className="delete_card" />
+          <FontAwesomeIcon
+            icon={faTrashCan}
+            className="delete_card"
+            onClick={onDelete}
+          />
         </div>
       </div>
     </Card>

@@ -3,6 +3,8 @@ export interface Session {
   date: string;
   comment: string;
   iFrame: string;
+  id: string;
+  onDelete?: React.MouseEventHandler;
 }
 
 export interface SessionProps {
