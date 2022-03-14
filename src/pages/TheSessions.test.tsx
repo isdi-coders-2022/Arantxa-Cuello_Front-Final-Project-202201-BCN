@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../redux/store";
-import MyProfilePage from "./MyProfilePage";
+import MyProfilePage from "./TheSessions";
 
 describe("Given a My profile page component", () => {
   describe("When it's rendered", () => {

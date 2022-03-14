@@ -11,14 +11,13 @@ describe("Given a Footer Component", () => {
         </BrowserRouter>
       );
 
-      const text = screen.getByRole("checkbox", { name: "" });
-      const heading = screen.getByRole("navigation", {
-        name: "",
+      const text = screen.getByRole("heading", {
+        name: /Welcome to Mindfulness, your meditation space/i,
       });
+
       const body = screen.getByRole("img", { name: /meditation woman/i });
 
       expect(text).toBeInTheDocument();
-      expect(heading).toBeInTheDocument();
       expect(body).toBeInTheDocument();
     });
   });

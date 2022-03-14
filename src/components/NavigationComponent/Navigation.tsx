@@ -16,7 +16,6 @@ const Nav = styled.nav`
   width: 100%;
   background: #fff;
   color: #000;
-  opacity: 0.85;
   align-items: center;
   z-index: 100;
   input[type="checkbox"]{

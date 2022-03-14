@@ -1,9 +1,8 @@
-import Navigation from "../components/NavigationComponent/Navigation";
 import meditation from "../images/meditation.png";
 import styled from "styled-components";
 import { primary } from "../styles/globalStyles";
 
-const Body = styled.article`
+const Body = styled.body`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -38,7 +37,6 @@ const Body = styled.article`
 const HomePage = () => {
   return (
     <>
-      <Navigation />
       <Body>
         <div className="body-container">
           <div className="picture">
