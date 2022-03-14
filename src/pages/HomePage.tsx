@@ -1,10 +1,10 @@
-import Navigation from "../components/NavigationComponent/Navigation";
 import meditation from "../images/meditation.png";
 import styled from "styled-components";
 import { primary } from "../styles/globalStyles";
 
-const Body = styled.article`
+const Body = styled.body`
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding-top: 120px;
@@ -33,12 +33,16 @@ const Body = styled.article`
       display: inline-block;
       text-align: center;
     }
+    .body-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 `;
 const HomePage = () => {
   return (
     <>
-      <Navigation />
       <Body>
         <div className="body-container">
           <div className="picture">

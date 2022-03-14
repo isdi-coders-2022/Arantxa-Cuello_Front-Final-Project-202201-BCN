@@ -29,6 +29,6 @@ const MainSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 115px;
 `;
 export default MyProfilePage;

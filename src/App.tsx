@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/FooterComponent/Footer";
 import Navigation from "./components/NavigationComponent/Navigation";
 import HomePage from "./pages/HomePage";
-import MyProfilePage from "./pages/MyProfilePage";
+import TheSessions from "./pages/TheSessions";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/allsessions" element={<MyProfilePage />} />
+        <Route path="/allsessions" element={<TheSessions />} />
       </Routes>
       <Footer />
     </>
