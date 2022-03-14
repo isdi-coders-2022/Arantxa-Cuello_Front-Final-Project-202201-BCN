@@ -27,11 +27,12 @@ const Card = styled.li`
 
 interface SessionCardProps {
   session: Session;
-  onDelete: () => void;
+  actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
 //faltan las acciones de modificar y borrar la session
 const SessionCard = ({
-  session: { title, date, comment, iFrame, onDelete },
+  session: { title, date, comment, iFrame },
+  actionOnClick,
 }: SessionCardProps): JSX.Element => {
   return (
     <Card>
@@ -52,9 +53,11 @@ const SessionCard = ({
         ></iframe>
         <div>
           <FontAwesomeIcon
+            title="trash"
             icon={faTrashCan}
             className="delete_card"
-            onClick={onDelete}
+            onClick={actionOnClick}
+            data-testid="deleteIcon"
           />
         </div>
       </div>

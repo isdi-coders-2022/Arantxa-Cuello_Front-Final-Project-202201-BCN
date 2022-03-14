@@ -4,7 +4,6 @@ export interface Session {
   comment: string;
   iFrame: string;
   id: string;
-  onDelete?: React.MouseEventHandler;
 }
 
 export interface SessionProps {
