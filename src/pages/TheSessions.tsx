@@ -5,7 +5,7 @@ import { loadSessionsThunk } from "../redux/thunks/sessionsThunks";
 import styled from "styled-components";
 import SessionCard from "../components/SessionCardComponent/SessionCard";
 
-const MyProfilePage = (): JSX.Element => {
+const TheSessions = (): JSX.Element => {
   const sessions = useSelector((state: RootState) => state.sessions);
   const dispatch = useDispatch();
 
@@ -31,4 +31,4 @@ const MainSection = styled.section`
   align-items: center;
   padding-top: 115px;
 `;
-export default MyProfilePage;
+export default TheSessions;
