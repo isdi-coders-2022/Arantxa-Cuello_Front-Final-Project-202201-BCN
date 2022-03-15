@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { MouseEventHandler, useState, ChangeEvent } from "react";
 
-const SessionForm = () => {
+const SessionForm = (): JSX.Element => {
   const [session, setSession] = useState({
     title: "",
     comment: "",
@@ -9,7 +9,7 @@ const SessionForm = () => {
 
   const isFormInvalid = session.iFrame === "";
 
-  const changeSession = (event) => {
+  const changeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setSession({ ...session, title: event.target.value });
   };
 
@@ -27,7 +27,7 @@ const SessionForm = () => {
           type="text"
           id="text"
           value={session.title}
-          onChange={changeSession}
+          onChange={changeTitle}
         />
         <label htmlFor="text">Comment:</label>
         <input type="text" id="text" value={session.comment} />
