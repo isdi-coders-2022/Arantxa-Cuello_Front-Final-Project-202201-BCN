@@ -19,7 +19,7 @@ export const loadSessionsThunk = async (
 export const deleteSessionThunk =
   (id: string) => async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_MINDFULNESS}/delete/${id}`,
+      `${process.env.REACT_APP_API_MINDFULNESS}delete/${id}`,
       {
         method: "DELETE",
       }
