@@ -2,12 +2,12 @@ import meditation from "../images/meditation.png";
 import styled from "styled-components";
 import { primary } from "../styles/globalStyles";
 
-const Body = styled.body`
+const Body = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 120px;
+  height: 100vh;
   .body-container {
     display: flex;
     flex-wrap: wrap;
