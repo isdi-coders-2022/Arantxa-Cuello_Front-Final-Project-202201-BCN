@@ -27,7 +27,7 @@ const TheSessions = (): JSX.Element => {
           {sessions.map((session) => (
             <SessionCard
               session={session}
-              key={session.title}
+              key={session.id}
               actionOnClick={() => deleteSession}
             />
           ))}

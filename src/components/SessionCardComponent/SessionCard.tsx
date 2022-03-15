@@ -22,6 +22,7 @@ const Card = styled.li`
     width: 25px;
     height: 25px;
     padding-top: 20px;
+    cursor: pointer;
   }
 `;
 

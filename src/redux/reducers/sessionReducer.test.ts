@@ -13,12 +13,14 @@ describe("Given a sessionReducer function", () => {
           comment: "mornings",
           date: "saturdays",
           iFrame: "example",
+          id: "33",
         },
         {
           title: "goodnight",
           comment: "evenings",
           date: "saturdays",
           iFrame: "example2",
+          id: "22",
         },
       ];
 
