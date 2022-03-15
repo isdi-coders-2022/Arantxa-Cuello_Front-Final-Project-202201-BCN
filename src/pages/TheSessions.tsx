@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/reducers";
-import { loadSessionsThunk } from "../redux/thunks/sessionsThunks";
+import {
+  deleteSessionThunk,
+  loadSessionsThunk,
+} from "../redux/thunks/sessionsThunks";
 import styled from "styled-components";
 import SessionCard from "../components/SessionCardComponent/SessionCard";
 
@@ -13,12 +16,20 @@ const TheSessions = (): JSX.Element => {
     dispatch(loadSessionsThunk);
   }, [dispatch]);
 
+  const deleteSession = (id: string) => {
+    dispatch(deleteSessionThunk(id));
+  };
+
   return (
     <>
       <MainSection>
         <ul>
           {sessions.map((session) => (
-            <SessionCard session={session} key={session.title} />
+            <SessionCard
+              session={session}
+              key={session.id}
+              actionOnClick={() => deleteSession}
+            />
           ))}
         </ul>
       </MainSection>

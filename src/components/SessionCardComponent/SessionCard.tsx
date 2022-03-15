@@ -22,15 +22,18 @@ const Card = styled.li`
     width: 25px;
     height: 25px;
     padding-top: 20px;
+    cursor: pointer;
   }
 `;
 
 interface SessionCardProps {
   session: Session;
+  actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
 //faltan las acciones de modificar y borrar la session
 const SessionCard = ({
   session: { title, date, comment, iFrame },
+  actionOnClick,
 }: SessionCardProps): JSX.Element => {
   return (
     <Card>
@@ -50,7 +53,13 @@ const SessionCard = ({
           allowFullScreen
         ></iframe>
         <div>
-          <FontAwesomeIcon icon={faTrashCan} className="delete_card" />
+          <FontAwesomeIcon
+            title="trash"
+            icon={faTrashCan}
+            className="delete_card"
+            onClick={actionOnClick}
+            data-testid="deleteIcon"
+          />
         </div>
       </div>
     </Card>

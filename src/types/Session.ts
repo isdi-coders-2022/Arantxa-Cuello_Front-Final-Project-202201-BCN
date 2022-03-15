@@ -3,6 +3,7 @@ export interface Session {
   date: string;
   comment: string;
   iFrame: string;
+  id: string;
 }
 
 export interface SessionProps {
