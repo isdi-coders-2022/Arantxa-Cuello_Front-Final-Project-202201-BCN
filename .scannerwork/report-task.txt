@@ -2,5 +2,5 @@ projectKey=Mindfulness-front-Arantxa-Cuello
 serverUrl=http://localhost:9000
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:9000/dashboard?id=Mindfulness-front-Arantxa-Cuello
-ceTaskId=AX-NIuIJ3f8w1dNeyzic
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-NIuIJ3f8w1dNeyzic
+ceTaskId=AX-IB8GQ3f8w1dNeyzg3
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-IB8GQ3f8w1dNeyzg3
