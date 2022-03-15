@@ -197,10 +197,10 @@ const Navigation = (): JSX.Element => {
             <a href="/allsessions">The Sessions</a>
           </li>
           <li>
-            <a href="/allsessions">Create your own session</a>
+            <a href="/createsession">Create your own session</a>
           </li>
           <li>
-            <a href="/allsessions">My Sessions</a>
+            <a href="/mysessions">My Sessions</a>
           </li>
           <li>
             <Link className="login" to="/login">
