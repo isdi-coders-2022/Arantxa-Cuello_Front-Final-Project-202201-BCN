@@ -10,3 +10,7 @@ export interface loadSessionsInterface extends AnyActionInterface {
 export interface deleteSessionInterface extends AnyActionInterface {
   id: string;
 }
+
+export interface createSessionInterface extends AnyActionInterface {
+  session: Session;
+}
