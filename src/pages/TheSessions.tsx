@@ -28,7 +28,7 @@ const TheSessions = (): JSX.Element => {
             <SessionCard
               session={session}
               key={session.id}
-              actionOnClick={() => deleteSession}
+              actionOnClick={() => deleteSession(session.id)}
             />
           ))}
         </ul>
