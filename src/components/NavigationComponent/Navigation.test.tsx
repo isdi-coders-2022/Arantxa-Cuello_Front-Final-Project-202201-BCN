@@ -14,10 +14,12 @@ describe("Given a Navigation Component", () => {
       const logo = screen.getByRole("img", { name: /logo/i });
       const button = screen.getByRole("link", { name: /create an account/i });
       const link = screen.getByRole("link", { name: /login/i });
+      const list = screen.getByRole("list", { name: "" });
 
       expect(logo).toBeInTheDocument();
       expect(button).toBeInTheDocument();
       expect(link).toBeInTheDocument();
+      expect(list).toBeInTheDocument();
     });
   });
 });

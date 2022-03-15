@@ -35,3 +35,43 @@ describe("Given a sessionReducer function", () => {
     });
   });
 });
+describe("Given a deleteSessionReducer function", () => {
+  describe("When it is called with a deleteSession action and an id", () => {
+    test("Then it should return the new state without the session deleted", () => {
+      const state: Session[] = [
+        {
+          title: "hello",
+          comment: "mornings",
+          date: "saturdays",
+          iFrame: "example",
+          id: "33",
+        },
+        {
+          title: "goodnight",
+          comment: "evenings",
+          date: "saturdays",
+          iFrame: "example2",
+          id: "22",
+        },
+      ];
+
+      const action = {
+        type: actionsTypes.deleteSession,
+        id: "22",
+      };
+
+      const newSessionResult = [
+        {
+          title: "hello",
+          comment: "mornings",
+          date: "saturdays",
+          iFrame: "example",
+          id: "33",
+        },
+      ];
+
+      const newState = sessionReducer(state, action);
+      expect(newState).toEqual(newSessionResult);
+    });
+  });
+});
