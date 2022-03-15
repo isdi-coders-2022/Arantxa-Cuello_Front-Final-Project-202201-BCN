@@ -17,12 +17,20 @@ const Card = styled.li`
     margin: 10px;
     padding: 20px;
     text-align: center;
+    width: 550px;
   }
   .delete_card {
     width: 25px;
     height: 25px;
     padding-top: 20px;
     cursor: pointer;
+  }
+  h1,
+  p {
+    padding: 10px;
+  }
+  h1 {
+    color: #219ebc;
   }
 `;
 

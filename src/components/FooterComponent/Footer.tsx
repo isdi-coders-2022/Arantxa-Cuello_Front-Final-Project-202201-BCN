@@ -9,12 +9,11 @@ const Banner = styled.footer`
   box-sizing: border-box;
   border: none;
   bottom: 0;
-  width: 100vw;
   position: absolute;
   left: 0;
   right: 0;
   height: auto;
-  padding-top: 40px;
+  padding-top: 30px;
   .footer-content {
     display: flex;
     align-items: center;
@@ -22,7 +21,9 @@ const Banner = styled.footer`
     flex-direction: column;
     text-align: center;
   }
-
+  h1 {
+    margin-bottom: 10px;
+  }
   ul {
     list-style: none;
     display: flex;

@@ -36,10 +36,10 @@ const TheSessions = (): JSX.Element => {
     </>
   );
 };
-const MainSection = styled.section`
+const MainSection = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 115px;
+  padding-top: 160px;
 `;
 export default TheSessions;

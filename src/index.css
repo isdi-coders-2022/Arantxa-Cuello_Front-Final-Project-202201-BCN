@@ -7,4 +7,8 @@ body {
   letter-spacing: 0.5px;
   color: #333;
   margin: 0;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 90;
+  padding-bottom: 150px;
 }
