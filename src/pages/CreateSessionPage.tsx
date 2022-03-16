@@ -1,5 +1,11 @@
+import SessionForm from "../components/FormComponent/Form";
+
 const CreateSessionPage = () => {
-  return <></>;
+  return (
+    <>
+      <SessionForm />
+    </>
+  );
 };
 
 export default CreateSessionPage;
