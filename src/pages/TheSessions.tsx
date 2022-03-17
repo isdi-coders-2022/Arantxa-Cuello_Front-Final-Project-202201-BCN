@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { RootState } from "../redux/reducers";
 import {
   deleteSessionThunk,
@@ -7,14 +8,21 @@ import {
 } from "../redux/thunks/sessionsThunks";
 import styled from "styled-components";
 import SessionCard from "../components/SessionCardComponent/SessionCard";
+import ClipLoader from "react-spinners/ClipLoader";
+import { primary } from "../styles/globalStyles";
 
 const TheSessions = (): JSX.Element => {
   const sessions = useSelector((state: RootState) => state.sessions);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsLoading(true);
     dispatch(loadSessionsThunk);
-  }, [dispatch]);
+    if (sessions.length > 1) {
+      setIsLoading(false);
+    }
+  }, [dispatch, sessions.length]);
 
   const deleteSession = (id: string) => {
     dispatch(deleteSessionThunk(id));
@@ -23,15 +31,22 @@ const TheSessions = (): JSX.Element => {
   return (
     <>
       <MainSection>
-        <ul>
-          {sessions.map((session) => (
-            <SessionCard
-              session={session}
-              key={session.id}
-              actionOnClick={() => deleteSession(session.id)}
-            />
-          ))}
-        </ul>
+        {isLoading ? (
+          <section className="loading_container">
+            <p className="loading">Loading...</p>
+            <ClipLoader color={primary} size={150} />
+          </section>
+        ) : (
+          <ul>
+            {sessions.map((session) => (
+              <SessionCard
+                session={session}
+                key={session.id}
+                actionOnClick={() => deleteSession(session.id)}
+              />
+            ))}
+          </ul>
+        )}
       </MainSection>
     </>
   );
@@ -41,5 +56,14 @@ const MainSection = styled.main`
   flex-direction: column;
   align-items: center;
   padding-top: 160px;
+  .loading_container,
+  p {
+    align-items: center;
+    text-align: center;
+  }
+  .loading {
+    color: ${primary};
+    font-size: 20px;
+  }
 `;
 export default TheSessions;
