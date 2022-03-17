@@ -1,5 +1,9 @@
 import { Session } from "../../types/Session";
-import { deleteSessionAction, loadSessionsAction } from "./actionsCreators";
+import {
+  createSessionAction,
+  deleteSessionAction,
+  loadSessionsAction,
+} from "./actionsCreators";
 
 describe("Given a load sessions action", () => {
   describe("When it receives a session", () => {
@@ -43,6 +47,28 @@ describe("Given a deleteSessionAction function", () => {
       };
 
       const action = deleteSessionAction(idTodelete);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a createSessionAction function", () => {
+  describe("When it receives an session", () => {
+    test("Then it should return an action with type 'create-session' and the new session", () => {
+      const newSession: Session = {
+        title: "saturday",
+        comment: "lalal",
+        date: "today",
+        iFrame: "example",
+        id: "22",
+      };
+
+      const expectedAction = {
+        type: "create-session",
+        session: newSession,
+      };
+
+      const action = createSessionAction(newSession);
 
       expect(action).toEqual(expectedAction);
     });

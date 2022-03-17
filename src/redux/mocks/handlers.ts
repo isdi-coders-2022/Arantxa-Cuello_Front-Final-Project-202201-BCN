@@ -34,4 +34,20 @@ export const handlers = [
       return res(ctx.status(404));
     }
   ),
+  rest.post(
+    `${process.env.REACT_APP_API_MINDFULNESS}create`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          session: {
+            title: "hello",
+            comment: "hola",
+            date: "today",
+            iFrame: "ejemplo",
+          },
+        })
+      );
+    }
+  ),
 ];
