@@ -5,7 +5,7 @@ import {
   createSessionAction,
 } from "../actions/actionsCreators";
 import { AnyAction } from "redux";
-import { Session } from "../../types/Session";
+import { NewSession } from "../../types/Session";
 
 export const loadSessionsThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -32,7 +32,7 @@ export const deleteSessionThunk =
   };
 
 export const createSessionThunk =
-  (session: Session) =>
+  (session: NewSession) =>
   async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_MINDFULNESS}create`,
@@ -45,6 +45,9 @@ export const createSessionThunk =
         body: JSON.stringify(session),
       }
     );
-    const newSession = await response.json();
-    dispatch(createSessionAction(newSession));
+    if (response.ok) {
+      const newSession = await response.json();
+
+      dispatch(createSessionAction(newSession));
+    }
   };
