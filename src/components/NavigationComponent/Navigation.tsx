@@ -50,7 +50,7 @@ const Nav = styled.nav`
   .nav-links li {
     list-style: none;
     margin-left: 50px;
-    font-size: 1.3rem;
+    font-size: 18px;
   }
   a {
     color: ${primary};
@@ -143,7 +143,7 @@ const Nav = styled.nav`
     }
     .nav-links li{
       margin-bottom: 1.8rem;
-      font-size: 1.1rem;
+      font-size: 18px;
       font-weight: 500;
     }
     img{
