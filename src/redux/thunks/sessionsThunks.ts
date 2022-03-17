@@ -38,9 +38,13 @@ export const createSessionThunk =
       `${process.env.REACT_APP_API_MINDFULNESS}create`,
       {
         method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(session),
       }
     );
-    if (response.ok) {
-      dispatch(createSessionAction(session));
-    }
+    const newSession = await response.json();
+    dispatch(createSessionAction(newSession));
   };

@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/allsessions" element={<TheSessions />} />
-        <Route path="/createsession" element={<CreateSessionPage />} />
+        <Route path="/create" element={<CreateSessionPage />} />
       </Routes>
       <Footer />
     </>
