@@ -5,16 +5,15 @@ import styled from "styled-components";
 import { createSessionThunk } from "../../redux/thunks/sessionsThunks";
 import { primary } from "../../styles/globalStyles";
 import { ToastContainer, toast } from "react-toastify";
+import { NewSession } from "../../types/Session";
 
 const SessionForm = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const initialData = {
+  const initialData: NewSession = {
     title: "",
     comment: "",
     iFrame: "",
-    date: "",
-    id: "",
   };
   const form = useRef(null);
   const [session, setSession] = useState(initialData);
@@ -56,16 +55,7 @@ const SessionForm = (): JSX.Element => {
             onChange={changeData}
           />
         </div>
-        <div>
-          <label htmlFor="text">Date</label>
-          <input
-            name="date"
-            type="date"
-            id="date"
-            value={session.date}
-            onChange={changeData}
-          />
-        </div>
+
         <div>
           <label htmlFor="text">Comment</label>
           <textarea

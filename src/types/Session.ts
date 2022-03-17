@@ -5,7 +5,12 @@ export interface Session {
   iFrame: string;
   id: string;
 }
+export interface NewSession {
+  title: string;
 
+  comment: string;
+  iFrame: string;
+}
 export interface SessionProps {
   session: Session;
   onClick: React.MouseEventHandler;
