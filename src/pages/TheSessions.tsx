@@ -19,8 +19,10 @@ const TheSessions = (): JSX.Element => {
   useEffect(() => {
     setIsLoading(true);
     dispatch(loadSessionsThunk);
-    setIsLoading(false);
-  }, [dispatch]);
+    if (sessions.length > 1) {
+      setIsLoading(false);
+    }
+  }, [dispatch, sessions.length]);
 
   const deleteSession = (id: string) => {
     dispatch(deleteSessionThunk(id));
@@ -30,7 +32,10 @@ const TheSessions = (): JSX.Element => {
     <>
       <MainSection>
         {isLoading ? (
-          <ClipLoader color={primary} size={150} />
+          <section className="loading_container">
+            <p className="loading">Loading...</p>
+            <ClipLoader color={primary} size={150} />
+          </section>
         ) : (
           <ul>
             {sessions.map((session) => (
@@ -51,5 +56,14 @@ const MainSection = styled.main`
   flex-direction: column;
   align-items: center;
   padding-top: 160px;
+  .loading_container,
+  p {
+    align-items: center;
+    text-align: center;
+  }
+  .loading {
+    color: ${primary};
+    font-size: 20px;
+  }
 `;
 export default TheSessions;
