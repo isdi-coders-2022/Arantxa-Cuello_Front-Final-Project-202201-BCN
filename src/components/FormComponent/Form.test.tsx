@@ -21,11 +21,14 @@ describe("Given a SessionForm Component", () => {
       const input = screen.getByRole("textbox", { name: /title/i });
       const label = screen.getByRole("textbox", { name: /comments/i });
       const button = screen.getByRole("button", { name: /send/i });
-
+      const date = screen.getByRole("textbox", { name: /date/i });
+      const textArea = screen.getByRole("textbox", { name: /comments/i });
       expect(heading).toBeInTheDocument();
       expect(input).toBeInTheDocument();
       expect(label).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+      expect(date).toBeInTheDocument();
+      expect(textArea).toBeInTheDocument();
     });
   });
 });
