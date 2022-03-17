@@ -21,9 +21,7 @@ const Nav = styled.nav`
   input[type="checkbox"]{
     appearance: none;
   }
-  @media (max-width: 600px) {
-    opacity: 0.95;
-  }
+
   .hamburger-lines {
     display: none;
   }
@@ -75,7 +73,7 @@ const Nav = styled.nav`
     transition: 0.15s;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 769px) {
   .navbar-container input[type="checkbox"],
   .navbar-container .hamburger-lines {
     display: block;
@@ -175,7 +173,7 @@ const Nav = styled.nav`
 }
 
   }
-  @media (max-width: 500px){
+  @media (max-width: 769px){
     .navbar-container input[type="checkbox"]:checked ~ .logo{
         display: none;
     }
