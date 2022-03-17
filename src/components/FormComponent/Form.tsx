@@ -1,10 +1,14 @@
-import { useState, ChangeEvent, SyntheticEvent } from "react";
+import { useState, ChangeEvent, SyntheticEvent, useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { createSessionThunk } from "../../redux/thunks/sessionsThunks";
 import { primary } from "../../styles/globalStyles";
+import { ToastContainer, toast } from "react-toastify";
 
 const SessionForm = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialData = {
     title: "",
     comment: "",
@@ -12,70 +16,61 @@ const SessionForm = (): JSX.Element => {
     date: "",
     id: "",
   };
+  const form = useRef(null);
   const [session, setSession] = useState(initialData);
 
-  const changeTitle = (event: ChangeEvent<HTMLInputElement>) => {
-    setSession({ ...session, title: event.target.value });
+  const changeData = (event: ChangeEvent<HTMLInputElement>) => {
+    setSession({ ...session, [event.target.id]: event.target.value });
   };
   const changeComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setSession({ ...session, comment: event.target.value });
+    setSession({ ...session, [event.target.id]: event.target.value });
   };
-  const changeIframe = (event: ChangeEvent<HTMLInputElement>) => {
-    setSession({ ...session, iFrame: event.target.value });
-  };
-  const changeDate = (event: ChangeEvent<HTMLInputElement>) => {
-    setSession({ ...session, date: event.target.value });
-  };
-  const dispatch = useDispatch();
+
   const submitSession = (event: SyntheticEvent) => {
     event.preventDefault();
     dispatch(createSessionThunk(session));
+
     resetForm();
+    setTimeout(goToAllSessions, 2000);
   };
 
   const resetForm = () => {
     setSession(initialData);
   };
-  const Form = styled.main`
-    padding-top: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    h1 {
-      padding: 10px;
-      color: ${primary};
-      font-size: 20px;
-      font-weight: normal;
-    }
-  `;
+  const notify = () => toast("Session sent!");
+  const goToAllSessions = () => {
+    navigate("/allsessions");
+  };
 
   return (
     <Form className="form-container">
-      <form noValidate autoComplete="off" onSubmit={submitSession}>
+      <form noValidate autoComplete="off" onSubmit={submitSession} ref={form}>
         <h1>Welcome! You can create your own meditation session here.</h1>
         <div>
           <label htmlFor="text">Title</label>
           <input
+            name="title"
             type="text"
-            id="text"
+            id="title"
             value={session.title}
-            onChange={changeTitle}
+            onChange={changeData}
           />
         </div>
         <div>
           <label htmlFor="text">Date</label>
           <input
+            name="date"
             type="date"
             id="date"
             value={session.date}
-            onChange={changeDate}
+            onChange={changeData}
           />
         </div>
         <div>
-          <label htmlFor="text">Comments</label>
+          <label htmlFor="text">Comment</label>
           <textarea
-            id="text"
+            name="comment"
+            id="comment"
             value={session.comment}
             onChange={changeComment}
           />
@@ -83,20 +78,34 @@ const SessionForm = (): JSX.Element => {
         <div>
           <label htmlFor="text">Enter your media url</label>
           <input
+            name="iFrame"
             type="text"
-            id="text"
+            id="iFrame"
             value={session.iFrame}
-            onChange={changeIframe}
+            onChange={changeData}
           />
         </div>
         <div>
-          <button className="form-button" type="submit">
+          <button className="form-button" onClick={notify} type="submit">
             Send
           </button>
+          <ToastContainer />
         </div>
       </form>
     </Form>
   );
 };
-
+const Form = styled.main`
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  h1 {
+    padding: 10px;
+    color: ${primary};
+    font-size: 20px;
+    font-weight: normal;
+  }
+`;
 export default SessionForm;
