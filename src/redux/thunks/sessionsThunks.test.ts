@@ -1,4 +1,8 @@
-import { loadSessionsThunk } from "./sessionsThunks";
+import {
+  loadSessionsThunk,
+  deleteSessionThunk,
+  createSessionThunk,
+} from "./sessionsThunks";
 
 describe("Given a loadSessionsthunks function", () => {
   describe("When it is called", () => {
@@ -9,20 +13,31 @@ describe("Given a loadSessionsthunks function", () => {
     });
   });
 });
-/* describe("Given a deleteSessionThunk function", () => {
+describe("Given a deleteSessionThunk function", () => {
   describe("When it is called with an existing id", () => {
-    test("Then it should call dispatch with the deleteSessionAction as parameter", async () => {
-      const id = "622faa6084d6259f6589d0df";
-      const expectedAction = {
-        type: "delete-session",
-        id: id,
-      };
+    test("Then it should call dispatch", async () => {
+      const id = "6233212de3b7b5bc827f58de";
+
       const dispatch = jest.fn();
 
       const deleteThunk = deleteSessionThunk(id);
       await deleteThunk(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
-});*/
+});
+describe("Given a createSessionThunk function", () => {
+  describe("When it is called with a new session", () => {
+    test("Then it should call dispatch", async () => {
+      const newSession = {
+        title: "hello",
+        date: "today",
+        comment: "hola",
+        iFrame: "ejemplo",
+        id: "23",
+      };
+      const dispatch = jest.fn();
+      const createThunk = createSessionThunk(newSession);
+      await createThunk(dispatch);
+    });
+  });
+});
