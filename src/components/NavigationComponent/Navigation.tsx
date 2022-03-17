@@ -21,9 +21,7 @@ const Nav = styled.nav`
   input[type="checkbox"]{
     appearance: none;
   }
-  @media (max-width: 769px) {
-    opacity: 0.95;
-  }
+
   .hamburger-lines {
     display: none;
   }
