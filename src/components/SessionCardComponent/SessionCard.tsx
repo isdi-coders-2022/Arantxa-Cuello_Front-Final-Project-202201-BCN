@@ -38,7 +38,6 @@ interface SessionCardProps {
   session: Session;
   actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
-//faltan las acciones de modificar y borrar la session
 const SessionCard = ({
   session: { title, date, comment, iFrame },
   actionOnClick,
