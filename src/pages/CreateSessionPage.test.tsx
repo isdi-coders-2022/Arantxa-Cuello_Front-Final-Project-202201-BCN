@@ -4,9 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import SessionForm from "../components/FormComponent/Form";
 import store from "../redux/store";
 
-describe("Given a Create session psge page component", () => {
+describe("Given a CreateSessionPage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render a form", () => {
+    test("Then it should render a SessionForm", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
