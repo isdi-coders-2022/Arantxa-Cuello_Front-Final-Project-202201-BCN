@@ -3,6 +3,13 @@ import SessionForm from "./Form";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
+import userEvent from "@testing-library/user-event";
+
+let mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
 
 describe("Given a SessionForm Component", () => {
   describe("When it´s rendered", () => {
@@ -23,6 +30,24 @@ describe("Given a SessionForm Component", () => {
       expect(heading).toBeInTheDocument();
       expect(input).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+    });
+  });
+  describe("When the user enter a title 'hello' and submit the form", () => {
+    test("Then it should invoke dispatch", () => {
+      const title = "hello";
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SessionForm />
+          </Provider>
+        </BrowserRouter>
+      );
+      const titleInput = screen.getByText(/title/i);
+      userEvent.type(titleInput, title);
+
+      userEvent.click(screen.getByRole("button"));
+
+      expect(mockDispatch).toHaveBeenCalled();
     });
   });
 });
