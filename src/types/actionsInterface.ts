@@ -14,3 +14,7 @@ export interface deleteSessionInterface extends AnyActionInterface {
 export interface createSessionInterface extends AnyActionInterface {
   session: Session;
 }
+
+export interface updateSessionInterface extends AnyActionInterface {
+  id: string;
+}

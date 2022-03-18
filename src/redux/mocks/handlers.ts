@@ -50,4 +50,10 @@ export const handlers = [
       );
     }
   ),
+  rest.put(
+    `${process.env.REACT_APP_API_MINDFULNESS}6233212de3b7b5bc827f58de`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json({}));
+    }
+  ),
 ];
