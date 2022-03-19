@@ -17,6 +17,17 @@ const oneSessionReducer = (
     case actionsTypes.loadOneSession:
       newCurrentSession = { ...(action as loadOneSessionInterface).session };
       break;
+
+    case actionsTypes.clearDetailSession:
+      newCurrentSession = {
+        title: "",
+        date: "",
+        comment: "",
+        iFrame: "",
+        id: "",
+      };
+      break;
+
     default:
       newCurrentSession = { ...currentSession };
   }
