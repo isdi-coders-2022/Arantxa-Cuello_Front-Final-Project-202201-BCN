@@ -17,7 +17,7 @@ function App() {
         <Route path="/allsessions" element={<TheSessions />} />
         <Route path="/create" element={<CreateSessionPage />} />
         <Route path="/my-sessions" element={<MySessionPage />} />
-        <Route path="edit/session/:id" element={<CreateSessionPage />} />
+        <Route path="/edit/session/:id" element={<CreateSessionPage />} />
         <Route
           path="/allsessions/session/:id"
           element={<DetailSessionPage />}

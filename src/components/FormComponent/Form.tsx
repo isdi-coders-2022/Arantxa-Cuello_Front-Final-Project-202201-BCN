@@ -1,28 +1,13 @@
-import {
-  useState,
-  ChangeEvent,
-  SyntheticEvent,
-  useRef,
-  useEffect,
-} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, ChangeEvent, SyntheticEvent, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import {
-  createSessionThunk,
-  loadOneSessionThunk,
-} from "../../redux/thunks/sessionsThunks";
+import { createSessionThunk } from "../../redux/thunks/sessionsThunks";
 import { primary } from "../../styles/globalStyles";
 import { ToastContainer, toast } from "react-toastify";
-import { NewSession, Session } from "../../types/Session";
-import { RootState } from "../../redux/reducers";
+import { NewSession } from "../../types/Session";
 
-export interface SessionFormInterface extends Session {
-  isEditing: boolean;
-  id: string;
-}
-
-const SessionForm = ({ isEditing, id }: SessionFormInterface): JSX.Element => {
+const SessionForm = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialData: NewSession = {
@@ -32,13 +17,6 @@ const SessionForm = ({ isEditing, id }: SessionFormInterface): JSX.Element => {
   };
   const form = useRef(null);
   const [session, setSession] = useState(initialData);
-
-  const currentSession: Session = useSelector(
-    (state: RootState) => state.currentSession
-  );
-
-  const buttonText = isEditing ? "Update" : "Create";
-  const isFormInvalid = session.title === "" || session.iFrame === "";
 
   const changeData = (event: ChangeEvent<HTMLInputElement>) => {
     setSession({ ...session, [event.target.id]: event.target.value });
@@ -62,18 +40,6 @@ const SessionForm = ({ isEditing, id }: SessionFormInterface): JSX.Element => {
   const goToAllSessions = () => {
     navigate("/allsessions");
   };
-
-  useEffect(() => {
-    if (isEditing) {
-      dispatch(loadOneSessionThunk(id as string));
-    }
-  }, [dispatch, isEditing, id]);
-
-  useEffect(() => {
-    if (currentSession.title) {
-      setSession(currentSession);
-    }
-  }, [currentSession]);
 
   return (
     <Form className="form-container">
@@ -110,13 +76,8 @@ const SessionForm = ({ isEditing, id }: SessionFormInterface): JSX.Element => {
           />
         </div>
         <div>
-          <button
-            className="form-button"
-            onClick={notify}
-            type="submit"
-            disabled={isFormInvalid}
-          >
-            {buttonText}
+          <button className="form-button" onClick={notify} type="submit">
+            Send
           </button>
           <ToastContainer />
         </div>

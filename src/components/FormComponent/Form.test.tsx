@@ -26,7 +26,7 @@ describe("Given a SessionForm Component", () => {
         name: /Welcome! You can create your own meditation session here/i,
       });
       const input = screen.getByRole("main");
-      const button = screen.getByRole("button", { name: /Create/i });
+      const button = screen.getByRole("button", { name: /Send/i });
       expect(heading).toBeInTheDocument();
       expect(input).toBeInTheDocument();
       expect(button).toBeInTheDocument();
