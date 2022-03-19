@@ -4,6 +4,7 @@ import {
   deleteSessionInterface,
   loadSessionsInterface,
   createSessionInterface,
+  updateSessionInterface,
 } from "../../types/actionsInterface";
 import actionsTypes from "../actions/actionsTypes";
 
@@ -13,7 +14,8 @@ const sessionReducer = (
     | AnyActionInterface
     | loadSessionsInterface
     | deleteSessionInterface
-    | createSessionInterface = {
+    | createSessionInterface
+    | updateSessionInterface = {
     type: "",
   }
 ) => {
@@ -32,6 +34,14 @@ const sessionReducer = (
 
     case actionsTypes.createSession:
       newSession = [...state, (action as createSessionInterface).session];
+      break;
+
+    case actionsTypes.updateSession:
+      newSession = state.map((session) =>
+        session.id === (action as updateSessionInterface).session.id
+          ? { ...(action as updateSessionInterface).session }
+          : { ...session }
+      );
       break;
 
     default:
