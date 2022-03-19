@@ -41,8 +41,7 @@ const UpdateSession = (): JSX.Element => {
 
   const submitSession = (event: SyntheticEvent) => {
     event.preventDefault();
-    dispatch(updateSessionThunk(session));
-    navigate("/allsessions");
+    dispatch(updateSessionThunk(session, navigate));
   };
 
   const notify = () => toast("Session edited!");

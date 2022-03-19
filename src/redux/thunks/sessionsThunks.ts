@@ -8,6 +8,7 @@ import {
 } from "../actions/actionsCreators";
 import { AnyAction } from "redux";
 import { EditSession, NewSession } from "../../types/Session";
+import { NavigateFunction } from "react-router-dom";
 
 export const loadSessionsThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -65,7 +66,7 @@ export const loadOneSessionThunk =
   };
 
 export const updateSessionThunk =
-  (session: EditSession) =>
+  (session: EditSession, navigate: NavigateFunction) =>
   async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_MINDFULNESS}edit/session/${session.id}`,
@@ -80,5 +81,6 @@ export const updateSessionThunk =
     if (response.ok) {
       const updatedSession = await response.json();
       dispatch(updateSessionAction(updatedSession));
+      navigate("/allsessions");
     }
   };

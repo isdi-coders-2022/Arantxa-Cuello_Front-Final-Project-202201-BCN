@@ -35,10 +35,7 @@ const DetailCard = ({
               data-testid="deleteIcon"
             />
           </div>
-          <button>
-            <Link to={`edit/session/${id}`} />
-            Edit
-          </button>
+          <Link to={`/edit/session/${id}`}>{<button>Edit</button>} </Link>
         </div>
       </div>
     </Card>
