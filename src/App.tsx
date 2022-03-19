@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/FooterComponent/Footer";
 import Navigation from "./components/NavigationComponent/Navigation";
 import CreateSessionPage from "./pages/CreateSessionPage";
+import DetailSessionPage from "./pages/DetailSessionPage";
 import HomePage from "./pages/HomePage";
 import MySessionPage from "./pages/MySessionsPage";
 import TheSessions from "./pages/TheSessions";
@@ -16,6 +17,11 @@ function App() {
         <Route path="/allsessions" element={<TheSessions />} />
         <Route path="/create" element={<CreateSessionPage />} />
         <Route path="/my-sessions" element={<MySessionPage />} />
+        <Route path="edit/session/:id" element={<CreateSessionPage />} />
+        <Route
+          path="/allsessions/session/:id"
+          element={<DetailSessionPage />}
+        />
       </Routes>
       <Footer />
     </>

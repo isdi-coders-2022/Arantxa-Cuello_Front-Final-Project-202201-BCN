@@ -5,15 +5,23 @@ export interface Session {
   iFrame: string;
   id: string;
 }
+
 export interface NewSession {
   title: string;
-
   comment: string;
   iFrame: string;
 }
+
+export interface NewCard {
+  title: string;
+  date: string;
+  comment: string;
+  iFrame: string;
+  onClick: React.MouseEventHandler<SVGSVGElement>;
+}
 export interface SessionProps {
   session: Session;
-  onClick: React.MouseEventHandler;
+  actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
 
 export interface SessionsArrayProps {

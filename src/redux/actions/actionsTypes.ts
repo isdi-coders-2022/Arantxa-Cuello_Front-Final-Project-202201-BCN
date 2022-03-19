@@ -3,6 +3,7 @@ const actionsTypes = {
   deleteSession: "delete-session",
   createSession: "create-session",
   updateSession: "update-session",
+  loadOneSession: "loadOne-session",
 };
 
 export default actionsTypes;

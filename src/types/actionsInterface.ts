@@ -15,6 +15,6 @@ export interface createSessionInterface extends AnyActionInterface {
   session: Session;
 }
 
-export interface updateSessionInterface extends AnyActionInterface {
-  id: string;
+export interface loadOneSessionInterface extends AnyActionInterface {
+  session: Session;
 }

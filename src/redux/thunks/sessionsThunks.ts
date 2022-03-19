@@ -3,7 +3,7 @@ import {
   loadSessionsAction,
   deleteSessionAction,
   createSessionAction,
-  updateSessionAction,
+  loadOneSessionAction,
 } from "../actions/actionsCreators";
 import { AnyAction } from "redux";
 import { NewSession } from "../../types/Session";
@@ -53,15 +53,12 @@ export const createSessionThunk =
     }
   };
 
-export const updateSessionThunk =
+export const loadOneSessionThunk =
   (id: string) => async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_MINDFULNESS}${id}`,
-      {
-        method: "PUT",
-      }
+      `${process.env.REACT_APP_API_MINDFULNESS}allsessions/session/${id}`
     );
-    if (response.ok) {
-      dispatch(updateSessionAction(id));
-    }
+    const currentSession = await response.json();
+
+    dispatch(loadOneSessionAction(currentSession));
   };

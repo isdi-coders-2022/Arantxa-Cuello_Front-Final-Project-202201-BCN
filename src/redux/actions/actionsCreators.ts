@@ -3,8 +3,8 @@ import { Session } from "../../types/Session";
 import {
   createSessionInterface,
   deleteSessionInterface,
+  loadOneSessionInterface,
   loadSessionsInterface,
-  updateSessionInterface,
 } from "../../types/actionsInterface";
 
 export const loadSessionsAction = (
@@ -26,7 +26,9 @@ export const createSessionAction = (
   session,
 });
 
-export const updateSessionAction = (id: string): updateSessionInterface => ({
-  type: actionsTypes.updateSession,
-  id,
+export const loadOneSessionAction = (
+  session: Session
+): loadOneSessionInterface => ({
+  type: actionsTypes.loadOneSession,
+  session,
 });
