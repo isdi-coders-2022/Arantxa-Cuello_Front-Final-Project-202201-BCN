@@ -13,9 +13,9 @@ import { primary } from "../styles/globalStyles";
 
 const TheSessions = (): JSX.Element => {
   const sessions = useSelector((state: RootState) => state.sessions);
+
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-
   useEffect(() => {
     setIsLoading(true);
     dispatch(loadSessionsThunk);

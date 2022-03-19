@@ -1,7 +1,8 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Session } from "../../types/Session";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Card = styled.li`
   display: flex;
@@ -25,6 +26,12 @@ const Card = styled.li`
     padding-top: 20px;
     cursor: pointer;
   }
+  .current_card {
+    width: 25px;
+    height: 25px;
+    padding-top: 20px;
+    cursor: pointer;
+  }
   h1,
   p {
     padding: 10px;
@@ -39,7 +46,7 @@ interface SessionCardProps {
   actionOnClick: React.MouseEventHandler<SVGSVGElement>;
 }
 const SessionCard = ({
-  session: { title, date, comment, iFrame },
+  session: { title, date, comment, iFrame, id },
   actionOnClick,
 }: SessionCardProps): JSX.Element => {
   return (
@@ -67,6 +74,18 @@ const SessionCard = ({
             onClick={actionOnClick}
             data-testid="deleteIcon"
           />
+        </div>
+        <div>
+          <Link to={`session/${id}`}>
+            {
+              <FontAwesomeIcon
+                title="eye"
+                icon={faEye}
+                className="current_card"
+                data-testid="currentIcon"
+              />
+            }
+          </Link>
         </div>
       </div>
     </Card>

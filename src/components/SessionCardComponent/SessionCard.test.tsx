@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import store from "../../redux/store";
 import SessionCard from "./SessionCard";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a SessionCard Component", () => {
   describe("When it receives a session with the title 'saturday'", () => {
@@ -16,9 +17,11 @@ describe("Given a SessionCard Component", () => {
       };
       const actionOnClick = jest.fn();
       render(
-        <Provider store={store}>
-          <SessionCard actionOnClick={actionOnClick} session={session} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SessionCard actionOnClick={actionOnClick} session={session} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const expectedText = screen.getByText(session.title);
@@ -44,9 +47,11 @@ describe("Given a SessionCard Component", () => {
       const actionOnClick = jest.fn();
 
       render(
-        <Provider store={store}>
-          <SessionCard actionOnClick={actionOnClick} session={session} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SessionCard actionOnClick={actionOnClick} session={session} />
+          </Provider>
+        </BrowserRouter>
       );
       const deleteIcon = screen.queryByTestId("deleteIcon") as HTMLElement;
       userEvent.click(deleteIcon);
