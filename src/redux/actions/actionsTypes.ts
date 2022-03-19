@@ -4,6 +4,7 @@ const actionsTypes = {
   createSession: "create-session",
   loadOneSession: "loadOne-session",
   clearDetailSession: "clear-detail-session",
+  updateSession: "update-session",
 };
 
 export default actionsTypes;

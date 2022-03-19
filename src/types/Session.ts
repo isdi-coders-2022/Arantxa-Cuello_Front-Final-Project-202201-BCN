@@ -11,6 +11,9 @@ export interface NewSession {
   comment: string;
   iFrame: string;
 }
+export interface EditSession extends NewSession {
+  id: string;
+}
 
 export interface NewCard {
   title: string;
