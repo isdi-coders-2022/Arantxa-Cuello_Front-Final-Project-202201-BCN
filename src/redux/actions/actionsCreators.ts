@@ -1,6 +1,7 @@
 import actionsTypes from "../actions/actionsTypes";
 import { Session } from "../../types/Session";
 import {
+  AnyActionInterface,
   createSessionInterface,
   deleteSessionInterface,
   loadOneSessionInterface,
@@ -31,4 +32,8 @@ export const loadOneSessionAction = (
 ): loadOneSessionInterface => ({
   type: actionsTypes.loadOneSession,
   session,
+});
+
+export const clearDetailSessionAction = (): AnyActionInterface => ({
+  type: actionsTypes.clearDetailSession,
 });
