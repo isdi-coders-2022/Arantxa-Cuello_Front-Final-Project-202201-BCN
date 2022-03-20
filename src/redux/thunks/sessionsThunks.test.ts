@@ -71,7 +71,7 @@ describe("Given a updateSessionThunk inner function", () => {
 
         comment: "hola",
         iFrame: "ejemplo",
-        id: "23",
+        id: "623655a3e412ea081bfd9c63",
       };
       const dispatch = jest.fn();
       const navigate = jest.fn();
