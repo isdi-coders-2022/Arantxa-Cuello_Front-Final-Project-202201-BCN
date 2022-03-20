@@ -1,7 +1,10 @@
+import { EditSession } from "../../types/Session";
 import {
   loadSessionsThunk,
   deleteSessionThunk,
   createSessionThunk,
+  loadOneSessionThunk,
+  updateSessionThunk,
 } from "./sessionsThunks";
 
 describe("Given a loadSessionsthunks function", () => {
@@ -38,6 +41,43 @@ describe("Given a createSessionThunk function", () => {
       const dispatch = jest.fn();
       const createThunk = createSessionThunk(newSession);
       await createThunk(dispatch);
+    });
+  });
+});
+describe("Civen a loadOneSessionThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should dispatch a function", async () => {
+      const newSession = {
+        title: "hello",
+        date: "today",
+        comment: "hola",
+        iFrame: "ejemplo",
+        id: "23",
+      };
+      const dispatch = jest.fn();
+
+      const loadThunk = loadOneSessionThunk(newSession.id);
+      await loadThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+describe("Given a updateSessionThunk inner function", () => {
+  describe("When it receives a dispatch function", () => {
+    test("Then it should call dispatch with an update action and a new session", async () => {
+      const session: EditSession = {
+        title: "Saturday",
+
+        comment: "hola",
+        iFrame: "ejemplo",
+        id: "23",
+      };
+      const dispatch = jest.fn();
+      const navigate = jest.fn();
+
+      const updateThunk = updateSessionThunk(session, navigate);
+      await updateThunk(dispatch);
     });
   });
 });
