@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import SessionForm from "../components/FormComponent/Form";
+import SessionForm from "../components/FormComponent/SessionForm";
 import store from "../redux/store";
 
 describe("Given a CreateSessionPage component", () => {
