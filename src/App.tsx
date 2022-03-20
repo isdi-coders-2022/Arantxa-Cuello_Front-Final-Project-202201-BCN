@@ -8,6 +8,7 @@ import UpdateSession from "./pages/UpdateSessionPage";
 import HomePage from "./pages/HomePage";
 import MySessionPage from "./pages/MySessionsPage";
 import TheSessions from "./pages/TheSessions";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           path="/allsessions/session/:id"
           element={<DetailSessionPage />}
         />
+        <Route path="/users/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </>

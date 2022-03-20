@@ -5,6 +5,10 @@ const actionsTypes = {
   loadOneSession: "loadOne-session",
   clearDetailSession: "clear-detail-session",
   updateSession: "update-session",
+  loginUser: "login-user",
+  registerUser: "register-user",
+  logoutUser: "logout-user",
+  loadProfile: "load-profile",
 };
 
 export default actionsTypes;

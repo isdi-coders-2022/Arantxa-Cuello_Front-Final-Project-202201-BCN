@@ -1,10 +1,30 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import medalla from "../images/medalla.png";
+import { RootState } from "../redux/reducers";
+import { loadProfileThunk } from "../redux/thunks/userThunk";
 import { primary, secondary } from "../styles/globalStyles";
-const MySessionPage = () => {
+import { User } from "../types/userInterface";
+
+const MySessionPage = (): JSX.Element => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const userProfile: User = useSelector((state: RootState) => state.user);
+
+  useEffect(() => {
+    dispatch(loadProfileThunk(id as string));
+  }, [dispatch, id]);
+
   return (
     <Profile>
-      <h1>Hello, name of user</h1>
+      {userProfile.loggedIn ? (
+        <h1>Hello, {userProfile.username}</h1>
+      ) : (
+        <h1>Please log in</h1>
+      )}
       <div>
         <img src={medalla} alt="trophy" />
       </div>

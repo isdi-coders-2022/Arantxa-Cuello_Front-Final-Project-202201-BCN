@@ -5,9 +5,12 @@ import {
   createSessionInterface,
   deleteSessionInterface,
   loadOneSessionInterface,
+  loadProfileInterface,
   loadSessionsInterface,
+  loginUserInterface,
   updateSessionInterface,
 } from "../../types/actionsInterface";
+import { LoginUser, RegisterUser, User } from "../../types/userInterface";
 
 export const loadSessionsAction = (
   sessions: Session[]
@@ -44,4 +47,25 @@ export const updateSessionAction = (
 ): updateSessionInterface => ({
   type: actionsTypes.updateSession,
   session,
+});
+
+export const loginUserAction = (
+  user: User | LoginUser
+): loginUserInterface => ({
+  type: actionsTypes.loginUser,
+  user,
+});
+
+export const logoutUserAction = (): AnyActionInterface => ({
+  type: actionsTypes.logoutUser,
+});
+
+export const registerUserAction = (user: RegisterUser) => ({
+  type: actionsTypes.registerUser,
+  user: user,
+});
+
+export const loadProfileAction = (user: User): loadProfileInterface => ({
+  type: actionsTypes.loadProfile,
+  user,
 });

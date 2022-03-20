@@ -1,4 +1,5 @@
 import { Session } from "./Session";
+import { LoginUser, User } from "./userInterface";
 
 export interface AnyActionInterface {
   type: string;
@@ -21,4 +22,12 @@ export interface loadOneSessionInterface extends AnyActionInterface {
 
 export interface updateSessionInterface extends AnyActionInterface {
   session: Session;
+}
+
+export interface loginUserInterface extends AnyActionInterface {
+  user: User | LoginUser;
+}
+
+export interface loadProfileInterface extends AnyActionInterface {
+  user: User;
 }
