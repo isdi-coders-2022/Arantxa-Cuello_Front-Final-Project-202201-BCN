@@ -50,17 +50,35 @@ export const handlers = [
       );
     }
   ),
+  rest.get(
+    `${process.env.REACT_APP_API_MINDFULNESS}edit/session/623655a3e412ea081bfd9c63`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          session: {
+            title: "Saturday",
+
+            comment: "hola",
+            iFrame: "ejemplo",
+            id: "623655a3e412ea081bfd9c63",
+          },
+        })
+      )
+  ),
   rest.put(
     `${process.env.REACT_APP_API_MINDFULNESS}edit/session/623655a3e412ea081bfd9c63`,
     (req, res, ctx) =>
       res(
         ctx.status(200),
         ctx.json({
-          title: "Saturday",
+          session: {
+            title: "Saturday",
 
-          comment: "hola",
-          iFrame: "ejemplo",
-          id: "623655a3e412ea081bfd9c63",
+            comment: "hola",
+            iFrame: "ejemplo",
+            id: "623655a3e412ea081bfd9c63",
+          },
         })
       )
   ),
