@@ -9,7 +9,7 @@ import {
   loginUserInterface,
   updateSessionInterface,
 } from "../../types/actionsInterface";
-import { LoginUser, User } from "../../types/userInterface";
+import { LoginUser, RegisterUser, User } from "../../types/userInterface";
 
 export const loadSessionsAction = (
   sessions: Session[]
@@ -53,4 +53,13 @@ export const loginUserAction = (
 ): loginUserInterface => ({
   type: actionsTypes.loginUser,
   user,
+});
+
+export const logoutUserAction = (): AnyActionInterface => ({
+  type: actionsTypes.logoutUser,
+});
+
+export const registerUserAction = (user: RegisterUser) => ({
+  type: actionsTypes.registerUser,
+  user: user,
 });
