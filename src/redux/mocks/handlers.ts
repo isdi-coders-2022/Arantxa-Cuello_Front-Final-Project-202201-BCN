@@ -51,7 +51,7 @@ export const handlers = [
     }
   ),
   rest.put(
-    `${process.env.REACT_APP_API_MINDFULNESS}edit/session/23`,
+    `${process.env.REACT_APP_API_MINDFULNESS}edit/session/623655a3e412ea081bfd9c63`,
     (req, res, ctx) =>
       res(
         ctx.status(200),
@@ -60,7 +60,7 @@ export const handlers = [
 
           comment: "hola",
           iFrame: "ejemplo",
-          id: "23",
+          id: "623655a3e412ea081bfd9c63",
         })
       )
   ),
