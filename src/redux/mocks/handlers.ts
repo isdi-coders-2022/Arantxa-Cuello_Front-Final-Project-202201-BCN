@@ -57,7 +57,7 @@ export const handlers = [
         ctx.status(200),
         ctx.json({
           session: {
-            title: "Saturday",
+            title: "Sunday",
 
             comment: "hola",
             iFrame: "ejemplo",

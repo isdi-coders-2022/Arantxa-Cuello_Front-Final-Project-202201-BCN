@@ -4,7 +4,7 @@ import Footer from "./components/FooterComponent/Footer";
 import Navigation from "./components/NavigationComponent/Navigation";
 import CreateSessionPage from "./pages/CreateSessionPage";
 import DetailSessionPage from "./pages/DetailSessionPage";
-import UpdateSession from "./pages/EditSessionPage";
+import UpdateSession from "./pages/UpdateSessionPage";
 import HomePage from "./pages/HomePage";
 import MySessionPage from "./pages/MySessionsPage";
 import TheSessions from "./pages/TheSessions";
