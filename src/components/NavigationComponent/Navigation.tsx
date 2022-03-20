@@ -201,7 +201,7 @@ const Navigation = (): JSX.Element => {
             <a href="/my-sessions">My Sessions</a>
           </li>
           <li>
-            <Link className="login" to="/login">
+            <Link className="login" to="/users/login">
               Login
             </Link>
           </li>
