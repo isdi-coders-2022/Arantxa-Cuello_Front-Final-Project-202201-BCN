@@ -51,7 +51,7 @@ export const handlers = [
     }
   ),
   rest.get(
-    `${process.env.REACT_APP_API_MINDFULNESS}edit/session/623655a3e412ea081bfd9c63`,
+    `${process.env.REACT_APP_API_MINDFULNESS}allsessions/session/623655a3e412ea081bfd9c63`,
     (req, res, ctx) =>
       res(
         ctx.status(200),
