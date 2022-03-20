@@ -50,4 +50,18 @@ export const handlers = [
       );
     }
   ),
+  rest.put(
+    `${process.env.REACT_APP_API_MINDFULNESS}edit/session/23`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          title: "Saturday",
+
+          comment: "hola",
+          iFrame: "ejemplo",
+          id: "23",
+        })
+      )
+  ),
 ];
