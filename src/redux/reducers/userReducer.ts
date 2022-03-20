@@ -1,5 +1,6 @@
 import {
   AnyActionInterface,
+  loadProfileInterface,
   loginUserInterface,
 } from "../../types/actionsInterface";
 import { User } from "../../types/userInterface";
@@ -14,7 +15,7 @@ const initialDataUser = {
 
 const userReducer = (
   userData: User = initialDataUser,
-  action: loginUserInterface | AnyActionInterface = {
+  action: loginUserInterface | AnyActionInterface | loadProfileInterface = {
     type: "",
   }
 ) => {
@@ -25,6 +26,9 @@ const userReducer = (
       break;
     case actionsTypes.logoutUser:
       newUser = { ...initialDataUser };
+      break;
+    case actionsTypes.loadProfile:
+      newUser = { ...(action as loadProfileInterface).user };
       break;
 
     default:

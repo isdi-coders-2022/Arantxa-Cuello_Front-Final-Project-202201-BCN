@@ -6,6 +6,7 @@ import {
 } from "../../types/userInterface";
 import jwtDecode from "jwt-decode";
 import {
+  loadProfileAction,
   loginUserAction,
   registerUserAction,
 } from "../actions/actionsCreators";
@@ -66,4 +67,20 @@ export const registerUserThunk =
     } else {
       toast.error("Oops!...Something went wrong.");
     }
+  };
+
+export const loadProfileThunk =
+  (id: string) => async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_MINDFULNESS}users/profile/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const newUser = await response.json();
+
+    dispatch(loadProfileAction(newUser));
   };

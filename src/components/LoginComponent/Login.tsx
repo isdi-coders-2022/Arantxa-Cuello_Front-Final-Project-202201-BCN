@@ -36,6 +36,7 @@ const Login = (): JSX.Element => {
   return (
     <>
       <Log className="container-form">
+        <h3>Log In</h3>
         <form noValidate autoComplete="off" onSubmit={submitForm}>
           <div className="form-data">
             <label htmlFor="user"></label>{" "}
@@ -76,16 +77,11 @@ const Login = (): JSX.Element => {
 };
 
 const Log = styled.main`
-  * {
-    box-sizing: border-box;
-  }
-  .container-form {
-    background: #f6f5f7;
-    margin-top: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   input {
     background-color: #e4dada;
     border: none;
@@ -114,6 +110,11 @@ const Log = styled.main`
   }
   p {
     padding: 20px;
+    font-size: 14px;
+  }
+  h3 {
+    padding: 20px;
+    color: ${primary};
   }
 `;
 export default Login;

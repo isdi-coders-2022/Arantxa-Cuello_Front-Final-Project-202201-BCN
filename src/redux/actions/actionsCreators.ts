@@ -5,6 +5,7 @@ import {
   createSessionInterface,
   deleteSessionInterface,
   loadOneSessionInterface,
+  loadProfileInterface,
   loadSessionsInterface,
   loginUserInterface,
   updateSessionInterface,
@@ -62,4 +63,9 @@ export const logoutUserAction = (): AnyActionInterface => ({
 export const registerUserAction = (user: RegisterUser) => ({
   type: actionsTypes.registerUser,
   user: user,
+});
+
+export const loadProfileAction = (user: User): loadProfileInterface => ({
+  type: actionsTypes.loadProfile,
+  user,
 });

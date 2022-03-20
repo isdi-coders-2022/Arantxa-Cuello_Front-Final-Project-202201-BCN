@@ -27,3 +27,7 @@ export interface updateSessionInterface extends AnyActionInterface {
 export interface loginUserInterface extends AnyActionInterface {
   user: User | LoginUser;
 }
+
+export interface loadProfileInterface extends AnyActionInterface {
+  user: User;
+}
