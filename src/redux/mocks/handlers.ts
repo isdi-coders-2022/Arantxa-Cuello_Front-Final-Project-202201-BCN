@@ -82,4 +82,49 @@ export const handlers = [
         })
       )
   ),
+  rest.post(
+    `${process.env.REACT_APP_API_MINDFULNESS}users/login`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          user: {
+            username: "leo",
+            password: "1234",
+          },
+        })
+      );
+    }
+  ),
+  rest.post(
+    `${process.env.REACT_APP_API_MINDFULNESS}users/register`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          user: {
+            username: "leo",
+            password: "1234",
+            name: "leo",
+          },
+        })
+      );
+    }
+  ),
+  rest.get(
+    `${process.env.REACT_APP_API_MINDFULNESS}users/profile/62374b8bc862fb1fddf349bb`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(200),
+        ctx.json({
+          user: {
+            username: "leo",
+            password: "1234",
+            name: "leo",
+
+            id: "62374b8bc862fb1fddf349bb",
+          },
+        })
+      )
+  ),
 ];
