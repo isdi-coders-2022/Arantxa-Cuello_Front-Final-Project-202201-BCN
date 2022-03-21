@@ -91,6 +91,8 @@ export const handlers = [
           user: {
             username: "leo",
             password: "1234",
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibGVvIiwiaWQiOiI2MjM4NTVmNmZmMzhlZjdkNDkxODI5MGQiLCJpYXQiOjE2NDc4NjA5NjMsImV4cCI6MTY0ODQ2NTc2M30.lRDiSAE0MvSjPTRrqSKRaXNC0TMuMmUUluBxQf92xRA",
           },
         })
       );
@@ -112,17 +114,17 @@ export const handlers = [
     }
   ),
   rest.get(
-    `${process.env.REACT_APP_API_MINDFULNESS}users/profile/62374b8bc862fb1fddf349bb`,
+    `${process.env.REACT_APP_API_MINDFULNESS}users/profile/22`,
     (req, res, ctx) =>
       res(
         ctx.status(200),
         ctx.json({
           user: {
-            username: "leo",
+            username: "Leo",
             password: "1234",
-            name: "leo",
+            name: "Leo",
 
-            id: "62374b8bc862fb1fddf349bb",
+            id: "22",
           },
         })
       )

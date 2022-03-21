@@ -1,23 +1,31 @@
-import { LoginUser, RegisterUser, User } from "../../types/userInterface";
+import { RegisterUser, User } from "../../types/userInterface";
 import {
   loadProfileThunk,
-  loginUserThunk,
+  //loginUserThunk,
   registerUserThunk,
 } from "./userThunk";
 
-describe("Given a loginUserThunks function", () => {
+/*describe("Given a loginUserThunks function", () => {
   describe("When it is called", () => {
-    test("Then it should dispatch a function", async () => {
-      const user: LoginUser = {
+    test("Then it should call dispatch with the login user action", async () => {
+      const user = {
         username: "leo",
         password: "1234",
+      };
+
+      const expectedAction = {
+        type: "login-user",
+        user: user,
       };
       const dispatch = jest.fn();
       const loginThunk = loginUserThunk(user);
       await loginThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(expectedAction);
     });
   });
-});
+});*/
 
 describe("Given a registerUserThunks function", () => {
   describe("When it is called", () => {
