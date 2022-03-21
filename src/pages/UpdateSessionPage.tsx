@@ -24,6 +24,20 @@ const UpdateSession = (): JSX.Element => {
     dispatch(loadOneSessionThunk(id as string));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    setSession({
+      title: sessiontoUpdate.title,
+      comment: sessiontoUpdate.comment,
+      iFrame: sessiontoUpdate.iFrame,
+      id: sessiontoUpdate.id,
+    });
+  }, [
+    sessiontoUpdate.comment,
+    sessiontoUpdate.iFrame,
+    sessiontoUpdate.id,
+    sessiontoUpdate.title,
+  ]);
+
   const initialData: EditSession = {
     title: sessiontoUpdate.title,
     comment: sessiontoUpdate.comment,
