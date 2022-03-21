@@ -3,7 +3,7 @@ import {
   loadProfileInterface,
   loginUserInterface,
 } from "../../types/actionsInterface";
-import { User } from "../../types/userInterface";
+import { LoginUser, User } from "../../types/userInterface";
 import actionsTypes from "../actions/actionsTypes";
 
 const initialDataUser = {
@@ -14,7 +14,7 @@ const initialDataUser = {
 };
 
 const userReducer = (
-  userData: User = initialDataUser,
+  userData: User | LoginUser = initialDataUser,
   action: loginUserInterface | AnyActionInterface | loadProfileInterface = {
     type: "",
   }
