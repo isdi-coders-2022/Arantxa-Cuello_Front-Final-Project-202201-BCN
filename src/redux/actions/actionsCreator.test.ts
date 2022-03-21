@@ -126,21 +126,24 @@ describe("Given a load one sessions action", () => {
 });
 
 describe("Given a load profile action", () => {
-  describe("When it receives a user", () => {
+  describe("When it receives a session", () => {
     test("Then it should return an action type loadProfile", () => {
-      const user: User = {
-        name: "leo",
-        username: "leo",
-        id: "22",
-        loggedIn: true,
-      };
+      const sessions: Session[] = [
+        {
+          title: "saturday",
+          comment: "lalal",
+          date: "today",
+          iFrame: "example",
+          id: "33",
+        },
+      ];
 
       const expectedAction = {
         type: "load-profile",
-        user,
+        sessions,
       };
 
-      const action = loadProfileAction(user);
+      const action = loadProfileAction(sessions);
 
       expect(action).toEqual(expectedAction);
     });

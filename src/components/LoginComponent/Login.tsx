@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginUserThunk } from "../../redux/thunks/userThunk";
 import styled from "styled-components";
 import { primary } from "../../styles/globalStyles";
@@ -11,7 +11,6 @@ const Login = (): JSX.Element => {
     password: "",
     loggedIn: false,
   };
-  const navigate = useNavigate();
   const [formData, setFormData] = useState(blankForm);
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -13,7 +13,6 @@ import {
 import { toast } from "react-toastify";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
-import { NavigateFunction } from "react-router-dom";
 
 export const loginUserThunk =
   (user: LoginUser | User) =>
