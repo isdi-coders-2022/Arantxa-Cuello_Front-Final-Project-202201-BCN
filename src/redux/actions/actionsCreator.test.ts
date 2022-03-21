@@ -1,5 +1,5 @@
 import { Session } from "../../types/Session";
-import { LoginUser, RegisterUser, User } from "../../types/userInterface";
+import { LoginUser, RegisterUser } from "../../types/userInterface";
 import {
   createSessionAction,
   deleteSessionAction,
@@ -175,6 +175,7 @@ describe("Given a login user action", () => {
       const user: LoginUser = {
         username: "leo",
         password: "1234",
+        loggedIn: false,
       };
 
       const expectedAction = {
