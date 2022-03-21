@@ -8,11 +8,13 @@ describe("Given a userReducer function", () => {
       const state: LoginUser = {
         username: "leo",
         password: "1234",
+        loggedIn: false,
       };
 
       const newUser: LoginUser = {
         username: "leo",
         password: "1234",
+        loggedIn: false,
       };
       const action = {
         type: actionsTypes.loginUser,
