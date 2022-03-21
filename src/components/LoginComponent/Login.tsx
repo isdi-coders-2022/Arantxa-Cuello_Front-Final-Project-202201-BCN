@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginUserThunk } from "../../redux/thunks/userThunk";
 import styled from "styled-components";
 import { primary } from "../../styles/globalStyles";
@@ -9,6 +9,7 @@ const Login = (): JSX.Element => {
   const blankForm = {
     username: "",
     password: "",
+    loggedIn: false,
   };
   const [formData, setFormData] = useState(blankForm);
 
@@ -20,7 +21,6 @@ const Login = (): JSX.Element => {
     });
   };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const resetForm = () => {
     setFormData(blankForm);
@@ -30,7 +30,6 @@ const Login = (): JSX.Element => {
     event.preventDefault();
     await dispatch(loginUserThunk(formData));
     resetForm();
-    navigate(`/my-sessions`);
   };
 
   return (

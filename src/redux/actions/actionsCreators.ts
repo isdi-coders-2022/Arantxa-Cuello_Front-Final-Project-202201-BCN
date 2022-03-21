@@ -65,7 +65,9 @@ export const registerUserAction = (user: RegisterUser) => ({
   user: user,
 });
 
-export const loadProfileAction = (user: User): loadProfileInterface => ({
+export const loadProfileAction = (
+  sessions: Session[]
+): loadProfileInterface => ({
   type: actionsTypes.loadProfile,
-  user,
+  sessions,
 });

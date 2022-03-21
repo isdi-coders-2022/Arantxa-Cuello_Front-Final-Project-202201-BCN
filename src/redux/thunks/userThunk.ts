@@ -40,6 +40,7 @@ export const loginUserThunk =
         loggedIn: true,
       };
       dispatch(loginUserAction(loggedUser));
+
       toast.success("You're logged in!");
     } else {
       toast.error("Wrong credentials");
@@ -80,7 +81,7 @@ export const loadProfileThunk =
         },
       }
     );
-    const newUser = await response.json();
+    const sessions = await response.json();
 
-    dispatch(loadProfileAction(newUser));
+    dispatch(loadProfileAction(sessions));
   };
