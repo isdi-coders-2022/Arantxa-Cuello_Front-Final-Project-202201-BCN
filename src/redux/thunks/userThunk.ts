@@ -13,6 +13,7 @@ import {
 import { toast } from "react-toastify";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
+import { NavigateFunction } from "react-router-dom";
 
 export const loginUserThunk =
   (user: LoginUser | User) =>
@@ -40,6 +41,7 @@ export const loginUserThunk =
         loggedIn: true,
       };
       dispatch(loginUserAction(loggedUser));
+
       toast.success("You're logged in!");
     } else {
       toast.error("Wrong credentials");
@@ -80,7 +82,7 @@ export const loadProfileThunk =
         },
       }
     );
-    const newUser = await response.json();
+    const sessions = await response.json();
 
-    dispatch(loadProfileAction(newUser));
+    dispatch(loadProfileAction(sessions));
   };

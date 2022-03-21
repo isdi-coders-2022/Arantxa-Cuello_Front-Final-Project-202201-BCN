@@ -1,22 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import medalla from "../images/medalla.png";
 import { RootState } from "../redux/reducers";
 import { loadProfileThunk } from "../redux/thunks/userThunk";
 import { primary, secondary } from "../styles/globalStyles";
-import { User } from "../types/userInterface";
+import { LoginUser, User } from "../types/userInterface";
 
 const MySessionPage = (): JSX.Element => {
-  const { id } = useParams();
   const dispatch = useDispatch();
 
-  const userProfile: User = useSelector((state: RootState) => state.user);
+  const userProfile: User | LoginUser = useSelector(
+    (state: RootState) => state.user
+  );
+  console.log(userProfile);
 
   useEffect(() => {
-    dispatch(loadProfileThunk(id as string));
-  }, [dispatch, id]);
+    dispatch(loadProfileThunk(userProfile.id as string));
+  }, [dispatch, userProfile.id]);
 
   return (
     <Profile>

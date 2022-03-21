@@ -9,7 +9,9 @@ const Login = (): JSX.Element => {
   const blankForm = {
     username: "",
     password: "",
+    loggedIn: false,
   };
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(blankForm);
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +22,6 @@ const Login = (): JSX.Element => {
     });
   };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const resetForm = () => {
     setFormData(blankForm);
@@ -30,7 +31,6 @@ const Login = (): JSX.Element => {
     event.preventDefault();
     await dispatch(loginUserThunk(formData));
     resetForm();
-    navigate(`/my-sessions`);
   };
 
   return (

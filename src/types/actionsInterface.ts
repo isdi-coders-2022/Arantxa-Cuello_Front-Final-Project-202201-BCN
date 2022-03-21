@@ -29,5 +29,5 @@ export interface loginUserInterface extends AnyActionInterface {
 }
 
 export interface loadProfileInterface extends AnyActionInterface {
-  user: User;
+  sessions: Session[];
 }

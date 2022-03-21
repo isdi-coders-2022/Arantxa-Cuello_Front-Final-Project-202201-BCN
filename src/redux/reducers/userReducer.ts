@@ -27,9 +27,9 @@ const userReducer = (
     case actionsTypes.logoutUser:
       newUser = { ...initialDataUser };
       break;
-    case actionsTypes.loadProfile:
+    /*case actionsTypes.loadProfile:
       newUser = { ...(action as loadProfileInterface).user };
-      break;
+      break;*/
 
     default:
       newUser = { ...userData };

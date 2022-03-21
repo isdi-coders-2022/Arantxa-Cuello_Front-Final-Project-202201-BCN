@@ -5,6 +5,7 @@ import {
   loadSessionsInterface,
   createSessionInterface,
   updateSessionInterface,
+  loadProfileInterface,
 } from "../../types/actionsInterface";
 import actionsTypes from "../actions/actionsTypes";
 
@@ -15,7 +16,8 @@ const sessionReducer = (
     | loadSessionsInterface
     | deleteSessionInterface
     | createSessionInterface
-    | updateSessionInterface = {
+    | updateSessionInterface
+    | loadProfileInterface = {
     type: "",
   }
 ) => {
@@ -42,6 +44,10 @@ const sessionReducer = (
           ? { ...(action as updateSessionInterface).session }
           : { ...session }
       );
+      break;
+    case actionsTypes.loadProfile:
+      newSession = [...(action as loadProfileInterface).sessions];
+
       break;
 
     default:
