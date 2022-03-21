@@ -1,9 +1,13 @@
 import { Session } from "../../types/Session";
+import { LoginUser, RegisterUser, User } from "../../types/userInterface";
 import {
   createSessionAction,
   deleteSessionAction,
   loadOneSessionAction,
+  loadProfileAction,
   loadSessionsAction,
+  loginUserAction,
+  registerUserAction,
   updateSessionAction,
 } from "./actionsCreators";
 
@@ -115,6 +119,67 @@ describe("Given a load one sessions action", () => {
       };
 
       const action = loadOneSessionAction(session);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a load profile action", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an action type loadProfile", () => {
+      const user: User = {
+        name: "leo",
+        username: "leo",
+        id: "22",
+        loggedIn: true,
+      };
+
+      const expectedAction = {
+        type: "load-profile",
+        user,
+      };
+
+      const action = loadProfileAction(user);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a register user action", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an action type registerUser", () => {
+      const user: RegisterUser = {
+        name: "leo",
+        username: "leo",
+        password: "1234",
+      };
+
+      const expectedAction = {
+        type: "register-user",
+        user,
+      };
+
+      const action = registerUserAction(user);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a login user action", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an action type loginUser", () => {
+      const user: LoginUser = {
+        username: "leo",
+        password: "1234",
+      };
+
+      const expectedAction = {
+        type: "login-user",
+        user,
+      };
+
+      const action = loginUserAction(user);
 
       expect(action).toEqual(expectedAction);
     });
