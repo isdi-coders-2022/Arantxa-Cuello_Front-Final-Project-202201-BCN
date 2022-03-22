@@ -1,6 +1,9 @@
 import meditation from "../images/meditation.png";
 import styled from "styled-components";
 import { primary } from "../styles/globalStyles";
+import { LoginUser, User } from "../types/userInterface";
+import { RootState } from "../redux/reducers";
+import { useSelector } from "react-redux";
 
 const Body = styled.main`
   display: flex;
@@ -41,22 +44,41 @@ const Body = styled.main`
   }
 `;
 const HomePage = () => {
+  const user: User | LoginUser = useSelector((state: RootState) => state.user);
   return (
     <>
       <Body>
-        <div className="body-container">
-          <div className="picture">
-            <img
-              src={meditation}
-              alt="meditation woman"
-              className="body_container_image"
-              height={459}
-              width={574}
-            />
-          </div>
+        {user.loggedIn ? (
+          <div className="body-container">
+            <div className="picture">
+              <img
+                src={meditation}
+                alt="meditation woman"
+                className="body_container_image"
+                height={459}
+                width={574}
+              />
+            </div>
 
-          <h1>Welcome to Mindfulness, your meditation space.</h1>
-        </div>
+            <h1>
+              Welcome to Mindfulness, {user.username} your meditation space.
+            </h1>
+          </div>
+        ) : (
+          <div className="body-container">
+            <div className="picture">
+              <img
+                src={meditation}
+                alt="meditation woman"
+                className="body_container_image"
+                height={459}
+                width={574}
+              />
+            </div>
+
+            <h1>Welcome to Mindfulness, your meditation space.</h1>
+          </div>
+        )}
       </Body>
     </>
   );

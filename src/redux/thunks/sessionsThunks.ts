@@ -9,6 +9,7 @@ import {
 import { AnyAction } from "redux";
 import { EditSession, NewSession } from "../../types/Session";
 import { NavigateFunction } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const loadSessionsThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -23,20 +24,27 @@ export const loadSessionsThunk = async (
 
 export const deleteSessionThunk =
   (id: string) => async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
+    const userToken = localStorage.getItem("UserToken");
     const response = await fetch(
       `${process.env.REACT_APP_API_MINDFULNESS}delete/${id}`,
       {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
+        },
       }
     );
     if (response.ok) {
       dispatch(deleteSessionAction(id));
+      toast.success("Session deleted!");
     }
   };
 
 export const createSessionThunk =
   (session: NewSession) =>
   async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
+    const userToken = localStorage.getItem("UserToken");
     const response = await fetch(
       `${process.env.REACT_APP_API_MINDFULNESS}create`,
       {
@@ -44,6 +52,7 @@ export const createSessionThunk =
 
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
         },
         body: JSON.stringify(session),
       }
@@ -52,6 +61,7 @@ export const createSessionThunk =
       const newSession = await response.json();
 
       dispatch(createSessionAction(newSession));
+      toast.success("Session created!");
     }
   };
 
@@ -68,12 +78,14 @@ export const loadOneSessionThunk =
 export const updateSessionThunk =
   (session: EditSession, navigate: NavigateFunction) =>
   async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
+    const userToken = localStorage.getItem("UserToken");
     const response = await fetch(
       `${process.env.REACT_APP_API_MINDFULNESS}edit/session/${session.id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
         },
         body: JSON.stringify(session),
       }

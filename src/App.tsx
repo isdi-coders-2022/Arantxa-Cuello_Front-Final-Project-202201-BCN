@@ -9,13 +9,16 @@ import HomePage from "./pages/HomePage";
 import MySessionPage from "./pages/MySessionsPage";
 import TheSessions from "./pages/TheSessions";
 import LoginPage from "./pages/LoginPage";
-import { useDispatch } from "react-redux";
-import { User } from "./types/userInterface";
+import { useDispatch, useSelector } from "react-redux";
+import { LoginUser, User } from "./types/userInterface";
 import { loginUserAction } from "./redux/actions/actionsCreators";
 import jwtDecode from "jwt-decode";
+import { RootState } from "./redux/reducers";
+import LogoutPage from "./pages/logoutPage";
 
 function App() {
   const dispatch = useDispatch();
+  const user: User | LoginUser = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
     const token = localStorage.getItem("UserToken");
@@ -32,13 +35,17 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/allsessions" element={<TheSessions />} />
         <Route path="/create" element={<CreateSessionPage />} />
-        <Route path="/my-sessions/:id" element={<MySessionPage />} />
+        <Route
+          path="/my-sessions/:id"
+          element={user.loggedIn ? <MySessionPage /> : <HomePage />}
+        />
         <Route path="/edit/session/:id" element={<UpdateSession />} />
         <Route
           path="/allsessions/session/:id"
           element={<DetailSessionPage />}
         />
         <Route path="/users/login" element={<LoginPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
       </Routes>
       <Footer />
     </>
