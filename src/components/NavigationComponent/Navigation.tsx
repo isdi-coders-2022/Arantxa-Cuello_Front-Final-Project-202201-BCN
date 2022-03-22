@@ -8,7 +8,6 @@ import { RootState } from "../../redux/reducers";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { loadProfileThunk } from "../../redux/thunks/userThunk";
-import LoginPage from "../../pages/LoginPage";
 
 const Nav = styled.nav`
   *,
