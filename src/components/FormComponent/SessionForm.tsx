@@ -10,10 +10,12 @@ import { NewSession } from "../../types/Session";
 const SessionForm = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const owner = JSON.parse(localStorage.getItem("user") ?? "{}");
   const initialData: NewSession = {
     title: "",
     comment: "",
     iFrame: "",
+    user: owner,
   };
   const form = useRef(null);
   const [session, setSession] = useState(initialData);

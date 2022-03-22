@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 import buda from "../../images/buda-logo.png";
 import styled from "styled-components";
 import { primary, secondary } from "../../styles/globalStyles";
+import { LoginUser, User } from "../../types/userInterface";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/reducers";
+import { useEffect } from "react";
+import jwtDecode from "jwt-decode";
+import { loadProfileThunk } from "../../redux/thunks/userThunk";
+import LoginPage from "../../pages/LoginPage";
 
 const Nav = styled.nav`
   *,
@@ -181,6 +188,17 @@ const Nav = styled.nav`
 `;
 
 const Navigation = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const userProfile: User | LoginUser = useSelector(
+    (state: RootState) => state.user
+  );
+  useEffect(() => {
+    const token = localStorage.getItem("UserToken");
+    if (token) {
+      const userInfo: User = jwtDecode(token);
+      dispatch(loadProfileThunk(userInfo.id));
+    }
+  }, [dispatch]);
   return (
     <Nav className="navbar">
       <div className="navbar-container container">
@@ -198,7 +216,11 @@ const Navigation = (): JSX.Element => {
             <a href="/create">Create your own session</a>
           </li>
           <li>
-            <a href="/my-sessions">My Sessions</a>
+            {userProfile.loggedIn ? (
+              <a href="/my-sessions/:id">My Sessions</a>
+            ) : (
+              <a href="/users/login">My Sessions</a>
+            )}
           </li>
           <li>
             <Link className="login" to="/users/login">
