@@ -51,4 +51,20 @@ describe("Given a userReducer function", () => {
       expect(newState).toEqual(newUser);
     });
   });
+  describe("When it is called with a logout user action with a user", () => {
+    test("Then it should return the initial state", () => {
+      const state: User = {
+        name: "",
+        username: "",
+        id: "",
+        loggedIn: false,
+      };
+      const action = {
+        type: actionsTypes.logoutUser,
+        user: state,
+      };
+      const newState = userReducer(state, action);
+      expect(newState).toEqual(state);
+    });
+  });
 });
