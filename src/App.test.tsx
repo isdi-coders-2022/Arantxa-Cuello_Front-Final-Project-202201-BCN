@@ -4,6 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import store from "./redux/store";
 
+jest.mock("jwt-decode", () => () => ({
+  name: "leo",
+  username: "leo",
+}));
 describe("Given an App component", () => {
   describe("When it's rendered", () => {
     test("Then it should render HomePage", () => {
@@ -18,8 +22,10 @@ describe("Given an App component", () => {
       const nav = screen.getByRole("heading", {
         name: "Welcome to Mindfulness, your meditation space.",
       });
+      const sessions = screen.getByRole("link", { name: /login/i });
 
       expect(nav).toBeInTheDocument();
+      expect(sessions).toBeInTheDocument();
     });
   });
 });

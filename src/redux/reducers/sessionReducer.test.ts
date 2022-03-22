@@ -106,3 +106,34 @@ describe("Given a createSession reducer", () => {
     });
   });
 });
+describe("Given a updateSession reducer", () => {
+  describe("When it receives an update action with a new session", () => {
+    test("Then it should return the new session", () => {
+      const state: Session[] = [
+        {
+          title: "hello",
+          comment: "mornings",
+          date: "saturdays",
+          iFrame: "example",
+          id: "32",
+        },
+      ];
+      const newSession = {
+        title: "123",
+        comment: "mornings",
+        date: "saturdays",
+        iFrame: "example",
+        id: "32",
+      };
+
+      const action = {
+        type: actionsTypes.updateSession,
+        session: newSession,
+      };
+
+      const update = sessionReducer(state, action);
+
+      expect(update[0].title).toBe(newSession.title);
+    });
+  });
+});
