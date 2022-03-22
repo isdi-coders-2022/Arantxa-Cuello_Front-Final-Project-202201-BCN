@@ -15,6 +15,7 @@ import { loginUserAction } from "./redux/actions/actionsCreators";
 import jwtDecode from "jwt-decode";
 import { RootState } from "./redux/reducers";
 import LogoutPage from "./pages/logoutPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
         />
         <Route path="/users/login" element={<LoginPage />} />
         <Route path="/logout" element={<LogoutPage />} />
+        <Route path="/users/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </>
