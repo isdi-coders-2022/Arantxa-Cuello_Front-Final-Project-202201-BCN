@@ -1,38 +1,38 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import styled from "styled-components";
 import { logoutUserAction } from "../redux/actions/actionsCreators";
-import { RootState } from "../redux/reducers";
+//import { RootState } from "../redux/reducers";
 import { primary } from "../styles/globalStyles";
-import { LoginUser, User } from "../types/userInterface";
-import LoginPage from "./LoginPage";
+//import { LoginUser, User } from "../types/userInterface";
 
-const LogoutPage = () => {
-  const user: User | LoginUser = useSelector((state: RootState) => state.user);
+const LogoutPage = (): JSX.Element => {
+  //const user: User | LoginUser = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //const notify = () => toast("You are now logged out!");
+
   const logOut = () => {
-    localStorage.setItem("UserToken", "");
+    localStorage.removeItem("UserToken");
     dispatch(logoutUserAction());
+
     navigate(`/`);
   };
   return (
     <>
-      {user.loggedIn ? (
-        <Form>
-          <div>
-            <h1>Do you want to log out?</h1>
-
-            <button type="submit" {...logOut}>
-              Yes, log out.
-            </button>
-          </div>
-        </Form>
-      ) : (
-        <LoginPage />
-      )}
+      <Form>
+        <div>
+          <h1>Do you want to log out?</h1>
+          <button type="submit" onClick={logOut}>
+            Log out.
+          </button>
+          <Toaster />;
+        </div>
+      </Form>
     </>
   );
 };

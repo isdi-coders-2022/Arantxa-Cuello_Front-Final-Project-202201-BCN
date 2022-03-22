@@ -222,12 +222,18 @@ const Navigation = (): JSX.Element => {
             )}
           </li>
           <li>
-            <Link className="login" to="/users/login">
-              Login
-            </Link>
+            {userProfile.loggedIn ? (
+              <Link className="login" to="/logout">
+                Logout
+              </Link>
+            ) : (
+              <Link className="login" to="/users/login">
+                Login
+              </Link>
+            )}
           </li>
           <li>
-            <Link className="login" to="/login">
+            <Link className="login" to="/users/register">
               Create an account
             </Link>
           </li>
