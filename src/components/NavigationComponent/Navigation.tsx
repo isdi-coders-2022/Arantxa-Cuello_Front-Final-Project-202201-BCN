@@ -216,7 +216,7 @@ const Navigation = (): JSX.Element => {
           </li>
           <li>
             {userProfile.loggedIn ? (
-              <a href="/my-sessions/:id">My Sessions</a>
+              <a href={`/my-sessions/${userProfile.id}`}>My Sessions</a>
             ) : (
               <a href="/users/login">My Sessions</a>
             )}
