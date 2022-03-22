@@ -24,3 +24,24 @@ describe("Given a oneSessionReducer function", () => {
     });
   });
 });
+
+describe("When it is called with a clearDetailSession action with a session", () => {
+  test("Then it should return the new state with the session", () => {
+    const newSession: Session = {
+      title: "",
+      date: "",
+      comment: "",
+      iFrame: "",
+      id: "",
+    };
+
+    const action = {
+      type: actionsTypes.clearDetailSession,
+      session: newSession,
+    };
+
+    const newState = oneSessionReducer(newSession, action);
+
+    expect(newState).toEqual(newSession);
+  });
+});

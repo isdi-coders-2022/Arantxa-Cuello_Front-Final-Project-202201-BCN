@@ -75,3 +75,34 @@ describe("Given a deleteSessionReducer function", () => {
     });
   });
 });
+describe("Given a createSession reducer", () => {
+  describe("When it receives a create action with a new session", () => {
+    test("Then it should return the new session", () => {
+      const state: Session[] = [
+        {
+          title: "hello",
+          comment: "mornings",
+          date: "saturdays",
+          iFrame: "example",
+          id: "33",
+        },
+      ];
+      const newSession = {
+        title: "123",
+        comment: "mornings",
+        date: "saturdays",
+        iFrame: "example",
+        id: "32",
+      };
+
+      const action = {
+        type: actionsTypes.createSession,
+        session: newSession,
+      };
+
+      const create = sessionReducer(state, action);
+
+      expect(create).toHaveLength(2);
+    });
+  });
+});

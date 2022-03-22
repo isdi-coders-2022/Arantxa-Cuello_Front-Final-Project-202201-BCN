@@ -25,7 +25,9 @@ const LogoutPage = () => {
           <div>
             <h1>Do you want to log out?</h1>
 
-            <button type="submit">Yes, log out.</button>
+            <button type="submit" {...logOut}>
+              Yes, log out.
+            </button>
           </div>
         </Form>
       ) : (
