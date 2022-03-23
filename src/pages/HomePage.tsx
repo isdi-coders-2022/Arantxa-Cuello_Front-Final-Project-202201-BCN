@@ -18,12 +18,13 @@ const Body = styled.main`
   }
   h1 {
     font-weight: normal;
-    font-size: 2em;
+    font-size: 16px;
     color: ${primary};
     text-align: center;
   }
   .picture {
     display: block;
+    padding-top: 40px;
   }
   .headlines {
     margin-left: 38px;
@@ -33,13 +34,23 @@ const Body = styled.main`
   }
   @media screen (max-width: 600px) {
     h1 {
-      display: inline-block;
+      font-weight: normal;
+      font-size: 25px;
+      color: #219ebc;
       text-align: center;
+      padding: 20px;
     }
     .body-container {
       display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      -webkit-box-align: center;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
+    }
+
+    .picture {
+      display: none;
     }
   }
 `;

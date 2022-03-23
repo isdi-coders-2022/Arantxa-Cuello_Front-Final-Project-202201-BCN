@@ -110,6 +110,7 @@ const Log = styled.main`
   p {
     padding: 20px;
     font-size: 14px;
+    text-align: center;
   }
   h3 {
     padding: 20px;

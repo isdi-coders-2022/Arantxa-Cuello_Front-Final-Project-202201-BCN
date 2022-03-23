@@ -9,7 +9,9 @@ import {
 import { AnyAction } from "redux";
 import { EditSession, NewSession } from "../../types/Session";
 import { NavigateFunction } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+
+const notifyDelete = () => toast("Session deleted!");
 
 export const loadSessionsThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -37,7 +39,7 @@ export const deleteSessionThunk =
     );
     if (response.ok) {
       dispatch(deleteSessionAction(id));
-      toast.success("Session deleted!");
+      notifyDelete();
     }
   };
 
@@ -59,9 +61,7 @@ export const createSessionThunk =
     );
     if (response.ok) {
       const newSession = await response.json();
-
       dispatch(createSessionAction(newSession));
-      toast.success("Session created!");
     }
   };
 
@@ -93,6 +93,7 @@ export const updateSessionThunk =
     if (response.ok) {
       const updatedSession = await response.json();
       dispatch(updateSessionAction(updatedSession));
+
       navigate("/allsessions");
     }
   };

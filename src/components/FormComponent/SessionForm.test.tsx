@@ -11,6 +11,15 @@ jest.mock("react-redux", () => ({
   useDispatch: () => mockDispatch,
 }));
 
+window.matchMedia = jest.fn().mockImplementation((query) => {
+  return {
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  };
+});
 describe("Given a SessionForm Component", () => {
   describe("When it´s rendered", () => {
     test("Then it should display a form with an h1, input, label and submit button", () => {
@@ -42,7 +51,7 @@ describe("Given a SessionForm Component", () => {
           </Provider>
         </BrowserRouter>
       );
-      const titleInput = screen.getByText(/title/i);
+      const titleInput = screen.getByPlaceholderText(/title/i);
       userEvent.type(titleInput, title);
 
       userEvent.click(screen.getByRole("button"));

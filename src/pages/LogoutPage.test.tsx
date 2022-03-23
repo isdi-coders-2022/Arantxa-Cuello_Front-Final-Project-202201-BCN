@@ -33,7 +33,7 @@ describe("Given a LogoutPage component", () => {
       name: /Do you want to log out?/i,
     });
     const button = screen.getByRole("button", {
-      name: /Log out./i,
+      name: /Log out/i,
     });
 
     expect(text).toBeInTheDocument();

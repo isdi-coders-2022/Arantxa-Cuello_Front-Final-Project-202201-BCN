@@ -10,14 +10,8 @@ import {
   loginUserAction,
   registerUserAction,
 } from "../actions/actionsCreators";
-import toast from "react-hot-toast";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
-
-const notifyLogin = () => toast("You are now logged in!");
-const loginError = () => toast("Wrong credencials");
-const registerToast = () => toast("You have registered correctly!");
-const registerError = () => toast("Oops!...Something went wrong.");
 
 export const loginUserThunk =
   (user: LoginUser | User) =>
@@ -45,9 +39,6 @@ export const loginUserThunk =
         loggedIn: true,
       };
       dispatch(loginUserAction(loggedUser));
-      notifyLogin();
-    } else {
-      loginError();
     }
   };
 
@@ -68,9 +59,6 @@ export const registerUserThunk =
     if (response.ok) {
       const newUser = await response.json();
       dispatch(registerUserAction(newUser));
-      registerToast();
-    } else {
-      registerError();
     }
   };
 
