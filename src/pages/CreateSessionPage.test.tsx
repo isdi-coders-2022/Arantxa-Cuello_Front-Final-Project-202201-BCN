@@ -18,8 +18,10 @@ describe("Given a CreateSessionPage component", () => {
       const form = screen.getByRole("main", {
         name: "",
       });
+      const session = screen.getByRole("button", { name: /send/i });
 
       expect(form).toBeInTheDocument();
+      expect(session).toBeInTheDocument();
     });
   });
 });
