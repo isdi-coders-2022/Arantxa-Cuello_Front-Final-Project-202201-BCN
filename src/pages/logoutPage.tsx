@@ -6,15 +6,10 @@ import styled from "styled-components";
 import { logoutUserAction } from "../redux/actions/actionsCreators";
 //import { RootState } from "../redux/reducers";
 import { primary } from "../styles/globalStyles";
-//import { LoginUser, User } from "../types/userInterface";
 
 const LogoutPage = (): JSX.Element => {
-  //const user: User | LoginUser = useSelector((state: RootState) => state.user);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  //const notify = () => toast("You are now logged out!");
 
   const logOut = () => {
     localStorage.removeItem("UserToken");
