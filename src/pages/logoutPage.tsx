@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 
 import styled from "styled-components";
 import { logoutUserAction } from "../redux/actions/actionsCreators";
-//import { RootState } from "../redux/reducers";
 import { primary } from "../styles/globalStyles";
 
 const LogoutPage = (): JSX.Element => {
