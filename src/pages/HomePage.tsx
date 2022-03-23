@@ -18,12 +18,13 @@ const Body = styled.main`
   }
   h1 {
     font-weight: normal;
-    font-size: 2em;
+    font-size: 16px;
     color: ${primary};
     text-align: center;
   }
   .picture {
     display: block;
+    padding-top: 40px;
   }
   .headlines {
     margin-left: 38px;
@@ -38,8 +39,15 @@ const Body = styled.main`
     }
     .body-container {
       display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      -webkit-box-align: center;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
+    }
+    .body_container_image {
+      width: 100%;
+      height: 100%;
     }
   }
 `;

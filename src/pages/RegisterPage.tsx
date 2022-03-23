@@ -57,7 +57,7 @@ const RegisterPage = (): JSX.Element => {
         <div className="form-data">
           <label htmlFor="password"></label>{" "}
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             placeholder="Password"

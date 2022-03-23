@@ -9,7 +9,7 @@ import {
 } from "../redux/thunks/sessionsThunks";
 import { primary } from "../styles/globalStyles";
 import { EditSession } from "../types/Session";
-import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateSession = (): JSX.Element => {
   const { id } = useParams();
@@ -57,8 +57,8 @@ const UpdateSession = (): JSX.Element => {
     event.preventDefault();
     dispatch(updateSessionThunk(session, navigate));
   };
-
   const notify = () => toast("Session edited!");
+
   return (
     <Form className="form-container">
       <form noValidate autoComplete="off" onSubmit={submitSession}>
@@ -94,10 +94,10 @@ const UpdateSession = (): JSX.Element => {
           />
         </div>
         <div>
-          <button className="form-button" onClick={notify} type="submit">
+          <button className="form-button" type="submit" onClick={notify}>
             Update
           </button>
-          <ToastContainer />
+          <Toaster />
         </div>
       </form>
     </Form>

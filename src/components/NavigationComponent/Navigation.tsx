@@ -38,8 +38,8 @@ const Nav = styled.nav`
   }
   .navbar-container {
     display: flex;
-    justify-content: space-between;
-    height: 100px;
+    justify-content: flex-start;
+    height: 88px;
     align-items: center;
   }
   .nav-links {
@@ -56,7 +56,7 @@ const Nav = styled.nav`
   .nav-links li {
     list-style: none;
     margin-left: 50px;
-    font-size: 18px;
+    font-size: 16px;
   }
   a {
     color: ${primary};
@@ -77,6 +77,9 @@ const Nav = styled.nav`
     font-size: inherit;
     width: 100%;
     transition: 0.15s;
+  }
+  .register .login {
+    
   }
 
   @media (max-width: 769px) {
@@ -149,7 +152,7 @@ const Nav = styled.nav`
     }
     .nav-links li{
       margin-bottom: 1.8rem;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 500;
     }
     img{
@@ -212,15 +215,16 @@ const Navigation = (): JSX.Element => {
             <Link to="/allsessions">The Sessions</Link>
           </li>
           <li>
-            <Link to="/create">Create your own session</Link>
-          </li>
-          <li>
-            {userProfile.loggedIn ? (
-              <Link to={`/my-sessions`}>My Sessions</Link>
-            ) : (
-              <Link to="/users/login">My Sessions</Link>
+            {userProfile.loggedIn && (
+              <Link to="/create">Create your own session</Link>
             )}
           </li>
+          <li>
+            {userProfile.loggedIn && (
+              <Link to={`/my-sessions`}>My Sessions</Link>
+            )}
+          </li>
+
           <li>
             {userProfile.loggedIn ? (
               <Link className="login" to="/logout">
@@ -233,7 +237,7 @@ const Navigation = (): JSX.Element => {
             )}
           </li>
           <li>
-            <Link className="login" to="/users/register">
+            <Link className="register" to="/users/register">
               Create an account
             </Link>
           </li>
