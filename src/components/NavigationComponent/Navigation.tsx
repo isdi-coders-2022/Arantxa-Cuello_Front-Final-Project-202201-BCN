@@ -38,9 +38,10 @@ const Nav = styled.nav`
   }
   .navbar-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     height: 88px;
     align-items: center;
+    text-align: center;
   }
   .nav-links {
     order: 2;
@@ -56,13 +57,16 @@ const Nav = styled.nav`
   .nav-links li {
     list-style: none;
     margin-left: 50px;
-    font-size: 16px;
+    font-size: 15px;
   }
   a {
     color: ${primary};
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
+    & .login{
+      margin-left: 250px;
+    }
   }
   a:hover {
     color: ${secondary};

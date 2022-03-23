@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Session } from "../../types/Session";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { LoginUser, User } from "../../types/userInterface";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/reducers";
 
 const Card = styled.li`
   display: flex;
@@ -51,6 +54,8 @@ const SessionCard = ({
 }: SessionCardProps): JSX.Element => {
   const dateFormat = (newDate: string) => new Date(newDate).toLocaleString();
 
+  const user: User | LoginUser = useSelector((state: RootState) => state.user);
+
   return (
     <Card>
       <div className="card-container">
@@ -69,14 +74,16 @@ const SessionCard = ({
           allowFullScreen
         ></iframe>
         <div>
-          <FontAwesomeIcon
-            title="trash"
-            icon={faTrashCan}
-            className="delete_card"
-            onClick={actionOnClick}
-            data-testid="deleteIcon"
-            aria-label="session-delete"
-          />
+          {user.loggedIn && (
+            <FontAwesomeIcon
+              title="trash"
+              icon={faTrashCan}
+              className="delete_card"
+              onClick={actionOnClick}
+              data-testid="deleteIcon"
+              aria-label="session-delete"
+            />
+          )}
         </div>
         <div>
           <Link to={`session/${id}`}>

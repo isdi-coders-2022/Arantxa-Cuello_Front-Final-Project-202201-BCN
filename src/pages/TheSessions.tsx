@@ -18,7 +18,7 @@ const TheSessions = (): JSX.Element => {
   useEffect(() => {
     setIsLoading(true);
     dispatch(loadSessionsThunk);
-    if (sessions.length > 1) {
+    if (sessions.length > 0) {
       setIsLoading(false);
     }
   }, [dispatch, sessions.length]);
