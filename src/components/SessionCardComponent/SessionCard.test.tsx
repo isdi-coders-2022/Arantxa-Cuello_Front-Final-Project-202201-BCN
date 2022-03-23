@@ -28,7 +28,7 @@ describe("Given a SessionCard Component", () => {
       const list = screen.getByRole("listitem");
       const commentCard = screen.getByText(session.comment);
       const heading = screen.getByRole("heading", { name: /saturday/i });
-      const image = screen.getByRole("img", { name: /trash/i });
+      const image = screen.getByRole("link", { name: /eye/i });
 
       expect(expectedText).toBeInTheDocument();
       expect(list).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("Given a SessionCard Component", () => {
       expect(image).toBeInTheDocument();
     });
   });
-  describe("When the delete icon is clicked", () => {
+  describe("When the eye icon is clicked", () => {
     test("Then it should execute the action", () => {
       const session = {
         title: "saturday",
@@ -55,10 +55,10 @@ describe("Given a SessionCard Component", () => {
           </Provider>
         </BrowserRouter>
       );
-      const deleteIcon = screen.queryByTestId("deleteIcon") as HTMLElement;
+      const deleteIcon = screen.queryByTestId("currentIcon") as HTMLElement;
       userEvent.click(deleteIcon);
 
-      expect(actionOnClick).toHaveBeenCalled();
+      expect(deleteIcon).toBeInTheDocument();
     });
   });
 });

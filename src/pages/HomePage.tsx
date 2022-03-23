@@ -47,6 +47,7 @@ const Body = styled.main`
       -webkit-box-align: center;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
     .picture {

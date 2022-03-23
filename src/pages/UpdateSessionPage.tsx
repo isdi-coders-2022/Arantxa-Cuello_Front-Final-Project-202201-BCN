@@ -104,7 +104,7 @@ const UpdateSession = (): JSX.Element => {
   );
 };
 const Form = styled.main`
-  padding-top: 120px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +114,34 @@ const Form = styled.main`
     color: ${primary};
     font-size: 20px;
     font-weight: normal;
+    padding-bottom: 40px;
+  }
+  label {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0px;
+  }
+  button {
+    border-radius: 20px;
+    border: 1px solid #57a9ec;
+    background-color: ${primary};
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  input,
+  textarea {
+    background-color: #e4dada;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    text-align: center;
   }
 `;
 export default UpdateSession;
