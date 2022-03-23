@@ -2,6 +2,7 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { primary } from "../../styles/globalStyles";
 import { SessionProps } from "../../types/Session";
 
 const DetailCard = ({
@@ -75,6 +76,19 @@ const Card = styled.li`
   }
   h1 {
     color: #219ebc;
+  }
+  button {
+    border-radius: 20px;
+    border: 1px solid #57a9ec;
+    background-color: ${primary};
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 `;
 

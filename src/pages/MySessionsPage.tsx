@@ -55,8 +55,8 @@ const Profile = styled.main`
   align-items: center;
   padding-top: 170px;
   img {
-    width: 150px;
-    padding: 20px;
+    width: 100px;
+    padding: 10px;
   }
   h1 {
     padding: 10px;
@@ -64,6 +64,7 @@ const Profile = styled.main`
   }
   h2 {
     color: ${secondary};
+    padding-bottom: 10px;
   }
 `;
 
