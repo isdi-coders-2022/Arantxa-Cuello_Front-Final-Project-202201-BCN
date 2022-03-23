@@ -22,14 +22,11 @@ const userReducer = (
   let newUser;
   switch (action.type) {
     case actionsTypes.loginUser:
-      newUser = { ...(action as loginUserInterface).user };
+      newUser = { ...(action as loginUserInterface).user, loggedIn: true };
       break;
     case actionsTypes.logoutUser:
       newUser = { ...initialDataUser };
       break;
-    /*case actionsTypes.loadProfile:
-      newUser = { ...(action as loadProfileInterface).user };
-      break;*/
 
     default:
       newUser = { ...userData };

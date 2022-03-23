@@ -209,16 +209,16 @@ const Navigation = (): JSX.Element => {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="/allsessions">The Sessions</a>
+            <Link to="/allsessions">The Sessions</Link>
           </li>
           <li>
-            <a href="/create">Create your own session</a>
+            <Link to="/create">Create your own session</Link>
           </li>
           <li>
             {userProfile.loggedIn ? (
-              <a href={`/my-sessions/${userProfile.id}`}>My Sessions</a>
+              <Link to={`/my-sessions`}>My Sessions</Link>
             ) : (
-              <a href="/users/login">My Sessions</a>
+              <Link to="/users/login">My Sessions</Link>
             )}
           </li>
           <li>
@@ -238,9 +238,9 @@ const Navigation = (): JSX.Element => {
             </Link>
           </li>
         </ul>
-        <a href="/">
+        <Link to="/">
           <img src={buda} alt="logo" />
-        </a>
+        </Link>
       </div>
     </Nav>
   );

@@ -7,14 +7,14 @@ describe("Given a userReducer function", () => {
     test("Then it should return the new state with the user", () => {
       const state: LoginUser = {
         username: "leo",
-        password: "1234",
+        password: "123",
         loggedIn: false,
       };
 
       const newUser: LoginUser = {
         username: "leo",
-        password: "1234",
-        loggedIn: false,
+        password: "123",
+        loggedIn: true,
       };
       const action = {
         type: actionsTypes.loginUser,

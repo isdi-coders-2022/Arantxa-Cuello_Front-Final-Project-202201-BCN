@@ -2,6 +2,7 @@ import actionsTypes from "../actions/actionsTypes";
 import { Session } from "../../types/Session";
 import {
   AnyActionInterface,
+  countSessionsInterface,
   createSessionInterface,
   deleteSessionInterface,
   loadOneSessionInterface,
@@ -70,4 +71,9 @@ export const loadProfileAction = (
 ): loadProfileInterface => ({
   type: actionsTypes.loadProfile,
   sessions,
+});
+
+export const countSessionsAction = (id: string): countSessionsInterface => ({
+  type: actionsTypes.countSessions,
+  id,
 });

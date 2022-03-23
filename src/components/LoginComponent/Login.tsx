@@ -65,7 +65,7 @@ const Login = (): JSX.Element => {
           </div>
 
           <div className="registerButton">
-            <Link to={`users/register`}>
+            <Link to={`/users/register`}>
               <p>Are you not registered yet? Create an account HERE.</p>
             </Link>
           </div>

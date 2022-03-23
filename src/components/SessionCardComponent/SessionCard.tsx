@@ -49,11 +49,13 @@ const SessionCard = ({
   session: { title, date, comment, iFrame, id },
   actionOnClick,
 }: SessionCardProps): JSX.Element => {
+  const dateFormat = (newDate: string) => new Date(newDate).toLocaleString();
+
   return (
     <Card>
       <div className="card-container">
         <h1>{title}</h1>
-        <p>{date}</p>
+        <p>{dateFormat(date)}</p>
         <div>
           <p>{comment}</p>
         </div>

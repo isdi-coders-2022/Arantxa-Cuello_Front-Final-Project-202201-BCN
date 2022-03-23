@@ -31,3 +31,7 @@ export interface loginUserInterface extends AnyActionInterface {
 export interface loadProfileInterface extends AnyActionInterface {
   sessions: Session[];
 }
+
+export interface countSessionsInterface extends AnyActionInterface {
+  id: string;
+}
