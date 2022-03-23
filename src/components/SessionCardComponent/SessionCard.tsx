@@ -42,6 +42,17 @@ const Card = styled.li`
   h1 {
     color: #219ebc;
   }
+  @media (max-width: 600px) {
+    .card-container {
+      margin: 10px 0;
+      padding: 0;
+      max-width: 100vw;
+    }
+  }
+`;
+
+const Iframe = styled.iframe`
+  max-width: 100vw;
 `;
 
 interface SessionCardProps {
@@ -64,7 +75,7 @@ const SessionCard = ({
         <div>
           <p>{comment}</p>
         </div>
-        <iframe
+        <Iframe
           width="460"
           height="215"
           src={iFrame}
@@ -72,7 +83,7 @@ const SessionCard = ({
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        ></Iframe>
         <div>
           {user.loggedIn && (
             <FontAwesomeIcon

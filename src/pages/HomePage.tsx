@@ -40,7 +40,7 @@ const Body = styled.main`
       text-align: center;
       padding: 20px;
     }
-    .body-container {
+    .dJZfTu .body-container {
       display: flex;
       flex-wrap: wrap;
       text-align: center;
@@ -55,6 +55,10 @@ const Body = styled.main`
     }
   }
 `;
+const Image = styled.img`
+  max-widh: 100vw;
+  height: auto;
+`;
 const HomePage = () => {
   const user: User | LoginUser = useSelector((state: RootState) => state.user);
   return (
@@ -63,7 +67,7 @@ const HomePage = () => {
         {user.loggedIn ? (
           <div className="body-container">
             <div className="picture">
-              <img
+              <Image
                 src={meditation}
                 alt="meditation woman"
                 className="body_container_image"
