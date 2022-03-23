@@ -37,12 +37,16 @@ function App() {
         <Route path="/allsessions" element={<TheSessions />} />
         <Route path="/create" element={<CreateSessionPage />} />
         <Route
-          path="/my-sessions/:id"
+          path="/my-sessions"
           element={user.loggedIn ? <MySessionPage /> : <HomePage />}
         />
         <Route path="/edit/session/:id" element={<UpdateSession />} />
         <Route
           path="/allsessions/session/:id"
+          element={<DetailSessionPage />}
+        />
+        <Route
+          path="/my-sessions/session/:id"
           element={<DetailSessionPage />}
         />
         <Route path="/users/login" element={<LoginPage />} />

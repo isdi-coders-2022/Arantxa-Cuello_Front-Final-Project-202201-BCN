@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (userProfile.loggedIn) {
-      navigate(`/my-sessions/${userProfile.id}`);
+      navigate(`/my-sessions`);
     }
   }, [navigate, userProfile.id, userProfile.loggedIn]);
   return (

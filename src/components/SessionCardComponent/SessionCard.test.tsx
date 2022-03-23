@@ -27,12 +27,14 @@ describe("Given a SessionCard Component", () => {
       const expectedText = screen.getByText(session.title);
       const list = screen.getByRole("listitem");
       const commentCard = screen.getByText(session.comment);
-      const dateCard = screen.getByText(session.date);
+      const heading = screen.getByRole("heading", { name: /saturday/i });
+      const image = screen.getByRole("img", { name: /trash/i });
 
       expect(expectedText).toBeInTheDocument();
       expect(list).toBeInTheDocument();
       expect(commentCard).toBeInTheDocument();
-      expect(dateCard).toBeInTheDocument();
+      expect(heading).toBeInTheDocument();
+      expect(image).toBeInTheDocument();
     });
   });
   describe("When the delete icon is clicked", () => {

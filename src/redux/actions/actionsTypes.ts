@@ -9,6 +9,7 @@ const actionsTypes = {
   registerUser: "register-user",
   logoutUser: "logout-user",
   loadProfile: "load-profile",
+  countSessions: "count-sessions",
 };
 
 export default actionsTypes;
