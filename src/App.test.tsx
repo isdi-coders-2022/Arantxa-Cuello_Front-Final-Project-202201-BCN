@@ -2,7 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { loginUserAction } from "./redux/actions/actionsCreators";
 import store from "./redux/store";
+import { LoginUser } from "./types/userInterface";
 
 jest.mock("jwt-decode", () => () => ({
   name: "leo",
@@ -26,6 +28,22 @@ describe("Given an App component", () => {
 
       expect(nav).toBeInTheDocument();
       expect(sessions).toBeInTheDocument();
+    });
+  });
+  describe("When it receives a user info", () => {
+    test("Then it should call dispatch", async () => {
+      const user: LoginUser = {
+        username: "leo",
+        password: "1234",
+        loggedIn: false,
+      };
+      const expectedAction = {
+        type: "login-user",
+        user,
+      };
+      const action = loginUserAction(user);
+
+      expect(action).toEqual(expectedAction);
     });
   });
 });
