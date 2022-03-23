@@ -34,8 +34,11 @@ const Body = styled.main`
   }
   @media screen (max-width: 600px) {
     h1 {
-      display: inline-block;
+      font-weight: normal;
+      font-size: 25px;
+      color: #219ebc;
       text-align: center;
+      padding: 20px;
     }
     .body-container {
       display: flex;
@@ -45,9 +48,9 @@ const Body = styled.main`
       flex-direction: column;
       align-items: center;
     }
-    .body_container_image {
-      width: 100%;
-      height: 100%;
+
+    .picture {
+      display: none;
     }
   }
 `;

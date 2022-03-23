@@ -21,7 +21,7 @@ const LogoutPage = (): JSX.Element => {
         <div className="logout-container">
           <h3>Do you want to log out?</h3>
           <button type="submit" onClick={logOut}>
-            Log out.
+            Log out
           </button>
         </div>
       </Form>
