@@ -40,7 +40,7 @@ const Body = styled.main`
       text-align: center;
       padding: 20px;
     }
-    .dJZfTu .body-container {
+    .body-container {
       display: flex;
       flex-wrap: wrap;
       text-align: center;
