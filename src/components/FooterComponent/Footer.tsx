@@ -13,7 +13,7 @@ const Banner = styled.footer`
   left: 0;
   right: 0;
   height: auto;
-  padding-top: 30px;
+  padding-top: 5px;
   .footer-content {
     display: flex;
     align-items: center;
@@ -22,7 +22,8 @@ const Banner = styled.footer`
     text-align: center;
   }
   h1 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-size: 10px;
   }
   ul {
     list-style: none;
@@ -31,10 +32,12 @@ const Banner = styled.footer`
     align-items: center;
     justify-content: center;
     padding: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
   li {
     margin: 0 10px;
+    width: 40px;
+    height: 40px;
   }
   .footer-content h1 {
     color: white;
@@ -66,7 +69,7 @@ const Footer = (): JSX.Element => {
             <img src={twitter} alt="twitter-logo" />
           </li>
         </ul>
-        <h1>Mindfulness©</h1>
+        <h1>Mindfulness© by Arantxa</h1>
       </div>
     </Banner>
   );

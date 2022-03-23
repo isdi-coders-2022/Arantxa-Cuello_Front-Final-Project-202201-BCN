@@ -75,6 +75,7 @@ const SessionCard = ({
             className="delete_card"
             onClick={actionOnClick}
             data-testid="deleteIcon"
+            aria-label="session-delete"
           />
         </div>
         <div>
@@ -85,6 +86,7 @@ const SessionCard = ({
                 icon={faEye}
                 className="current_card"
                 data-testid="currentIcon"
+                aria-label="session-detail"
               />
             }
           </Link>

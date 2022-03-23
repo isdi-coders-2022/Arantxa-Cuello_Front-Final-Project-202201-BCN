@@ -9,7 +9,6 @@ import {
   loadOneSessionThunk,
 } from "../redux/thunks/sessionsThunks";
 import { Session } from "../types/Session";
-import { ToastContainer, toast } from "react-toastify";
 
 const DetailSessionPage = (): JSX.Element => {
   const { id } = useParams();
@@ -30,15 +29,12 @@ const DetailSessionPage = (): JSX.Element => {
   const deleteSession = () => {
     dispatch(deleteSessionThunk(id as string));
   };
-
   return (
     <>
-      <ToastContainer />
       <DetailCard
         session={sessionDetail}
         actionOnClick={() => {
           deleteSession();
-          toast.success("Session deleted!");
         }}
       />
     </>

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { createSessionThunk } from "../../redux/thunks/sessionsThunks";
 import { primary } from "../../styles/globalStyles";
-import { ToastContainer, toast } from "react-toastify";
 import { NewSession } from "../../types/Session";
+import toast, { Toaster } from "react-hot-toast";
 
 const SessionForm = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -45,10 +45,12 @@ const SessionForm = (): JSX.Element => {
   return (
     <Form className="form-container">
       <form noValidate autoComplete="off" onSubmit={submitSession} ref={form}>
-        <h1>Welcome! You can create your own meditation session here.</h1>
-        <div>
-          <label htmlFor="text">Title</label>
+        <h3>Welcome! You can create your own meditation session here.</h3>
+
+        <div className="form-data">
+          <label htmlFor="text"></label>
           <input
+            placeholder="Title"
             name="title"
             type="text"
             id="title"
@@ -57,18 +59,20 @@ const SessionForm = (): JSX.Element => {
           />
         </div>
 
-        <div>
-          <label htmlFor="text">Comment</label>
+        <div className="form-data">
+          <label htmlFor="text"></label>
           <textarea
+            placeholder="Comment"
             name="comment"
             id="comment"
             value={session.comment}
             onChange={changeComment}
           />
         </div>
-        <div>
-          <label htmlFor="text">Enter your media url</label>
+        <div className="form-data">
+          <label htmlFor="text"></label>
           <input
+            placeholder="Enter your media URL"
             name="iFrame"
             type="text"
             id="iFrame"
@@ -76,27 +80,51 @@ const SessionForm = (): JSX.Element => {
             onChange={changeData}
           />
         </div>
-        <div>
+        <div className="send-button">
           <button className="form-button" onClick={notify} type="submit">
             Send
           </button>
-          <ToastContainer />
+          <Toaster />
         </div>
       </form>
     </Form>
   );
 };
 const Form = styled.main`
-  padding-top: 120px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  h1 {
-    padding: 10px;
+  .form-data {
+    text-align: center;
+  }
+  input,
+  textarea {
+    background-color: #e4dada;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    text-align: center;
+  }
+  h3 {
+    padding: 20px;
     color: ${primary};
-    font-size: 20px;
-    font-weight: normal;
+  }
+  button {
+    border-radius: 20px;
+    border: 1px solid #57a9ec;
+    background-color: ${primary};
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .send-button {
+    text-align: center;
+    margin-top: 10px;
   }
 `;
 export default SessionForm;

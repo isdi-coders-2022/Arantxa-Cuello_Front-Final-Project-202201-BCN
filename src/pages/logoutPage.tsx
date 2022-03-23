@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 
 import styled from "styled-components";
 import { logoutUserAction } from "../redux/actions/actionsCreators";
@@ -19,12 +18,11 @@ const LogoutPage = (): JSX.Element => {
   return (
     <>
       <Form>
-        <div>
-          <h1>Do you want to log out?</h1>
+        <div className="logout-container">
+          <h3>Do you want to log out?</h3>
           <button type="submit" onClick={logOut}>
             Log out.
           </button>
-          <Toaster />;
         </div>
       </Form>
     </>
@@ -32,16 +30,31 @@ const LogoutPage = (): JSX.Element => {
 };
 
 const Form = styled.main`
-  padding-top: 120px;
+  padding-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  h1 {
-    padding: 10px;
+  .logout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h3 {
+    padding: 20px;
     color: ${primary};
-    font-size: 20px;
-    font-weight: normal;
+  }
+  button {
+    border-radius: 20px;
+    border: 1px solid #57a9ec;
+    background-color: ${primary};
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 `;
 
